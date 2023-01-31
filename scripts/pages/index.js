@@ -1,16 +1,13 @@
-       async function getPhotographers() {
-        // Ceci est un exemple de données pour avoir un affichage de photographes de test dès le démarrage du projet,
-        // mais il sera à remplacer avec une requête sur le fichier JSON en utilisant "fetch".
-        return fetch('./data/photographers.json')
+    async function getPhotographers() {
 
-        .then(function(res) {
-            console.log(res);
-            return res.json();
-          })
-          .catch(function(err) {
-            // Une erreur est survenue
-            console.log(err)
-          });
+      return fetch('./data/photographers.json')
+      .then(function(res) {
+        console.log(res);
+        return res.json();
+      })
+      .catch(function(err) {
+        console.log(err)
+      });
     }
 
     async function displayData(photographers) {
@@ -23,6 +20,7 @@
         });
     };
 
+    //Function d'initialisation -> getPhotographers() -> displayData()
     async function init() {
         // Récupère les datas des photographes
         const { photographers } = await getPhotographers();
