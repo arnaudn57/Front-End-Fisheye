@@ -1,4 +1,4 @@
-    async function getPhotographers() {
+   async function getPhotographers() {
 
       return fetch('./data/photographers.json')
       .then(function(res) {
