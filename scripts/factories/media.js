@@ -1,17 +1,13 @@
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const photographerId = urlParams.get('id');
+function mediaFactory(data) {
+  const { image, video, title, likes, id, date } = data;
 
-function photographerHeaderProfile(photographe) {
-  const { city, country, name, tagline, price } = photographe;
-  console.log(city);
-  console.log(country);
-  console.log(name);
-  console.log(tagline);
-  console.log(price + "EUR/jour");
+  const picture = `./assets/images/${image}`;
+  const _video = `./assets/images/${video}`;
+  const titre = `./assets/images/${title}`;
+  const coeur = `./assets/images/${likes}`;
+
+  function getMediaCardDOM() {
+    console.log("Tout les médias");
+  }
+  return { titre, coeur, _video, picture, date, getMediaCardDOM }
 }
-
-function photographerMediasProfile(media){
-  console.log(media);
-
-};
