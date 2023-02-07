@@ -10,14 +10,16 @@ function mediaFactory(data) {
     console.log(data);
     //Création de la div
     const div = document.createElement('div');
-    div.setAttribute('class', 'media');
+    div.setAttribute('class', 'photo');
+
+
 
     if ('video' in data) {
       console.log('video');
       //Création de la balise video
       const video = document.createElement('video');
       video.setAttribute('controls', 'controls');
-      // video.setAttribute('class', 'video');
+      video.setAttribute('class', 'media');
 
       //Création de la balise source
       const source = document.createElement('source');
@@ -29,9 +31,9 @@ function mediaFactory(data) {
       titreVideo.textContent = titre;
       //Ajout de la balise source dans la balise video
       video.appendChild(source);
-      div.appendChild(titreVideo);
       //Ajout de la balise video dans la div
       div.appendChild(video);
+      div.appendChild(titreVideo);
 
     } else {
 
@@ -41,6 +43,7 @@ function mediaFactory(data) {
       // img.setAttribute('class', 'photo');
       img.setAttribute('src', picture);
       img.setAttribute('alt', titre);
+      img.setAttribute('class', 'media');
       //Ajout de la balise img dans la div
       const titreVideo = document.createElement('p');
       titreVideo.setAttribute('class', 'titre');

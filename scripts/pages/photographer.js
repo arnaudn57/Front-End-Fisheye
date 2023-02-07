@@ -31,8 +31,28 @@ async function displayData(photographers, media) {
     infoPrice.appendChild(userPriceDOM);
   })
 
-  const filteredMedias = media.filter((obj) => obj.photographerId == _id)
-  console.log(filteredMedias)
+  let filteredMedias = media.filter((obj) => obj.photographerId == _id)
+
+  //Implémenter ici le filtre
+
+
+  // Filtre par popularité
+  filteredMedias = filteredMedias.sort((a, b) => a.likes - b.likes).reverse();
+    console.log(filteredMedias)
+
+  // const triSelect = document.getElementById('tri-select');
+  // if (triSelect.value === 'populaire'){
+  //   filteredMedias = filteredMedias.sort((a, b) => a.likes - b.likes).reverse();
+  //   console.log(filteredMedias)
+  // } else if (triSelect.value === 'date'){
+  //   filteredMedias = filteredMedias.sort((a, b) => a.date - b.date).reverse();
+  //   console.log(filteredMedias)
+  // } else if (triSelect.value === 'titre'){
+  //   filteredMedias = filteredMedias.sort((a, b) => a.title - b.title).reverse();
+  //   console.log(filteredMedias)
+  // }
+
+
   const mediaSection = document.getElementsByClassName('gallery');
   console.log(mediaSection)
   filteredMedias.forEach((media) => {
