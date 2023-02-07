@@ -37,21 +37,22 @@ async function displayData(photographers, media) {
 
 
   // Filtre par popularité
-  filteredMedias = filteredMedias.sort((a, b) => a.likes - b.likes).reverse();
-    console.log(filteredMedias)
+  // filteredMedias = filteredMedias.sort((a, b) => a.likes - b.likes).reverse();
+  //   console.log(filteredMedias)
 
-  // const triSelect = document.getElementById('tri-select');
-  // if (triSelect.value === 'populaire'){
-  //   filteredMedias = filteredMedias.sort((a, b) => a.likes - b.likes).reverse();
-  //   console.log(filteredMedias)
-  // } else if (triSelect.value === 'date'){
-  //   filteredMedias = filteredMedias.sort((a, b) => a.date - b.date).reverse();
-  //   console.log(filteredMedias)
-  // } else if (triSelect.value === 'titre'){
-  //   filteredMedias = filteredMedias.sort((a, b) => a.title - b.title).reverse();
-  //   console.log(filteredMedias)
-  // }
-
+  const triSelect = document.getElementById('tri-select');
+  triSelect.addEventListener('change', function (){
+    if (triSelect.value === 'populaire'){
+      filteredMedias = filteredMedias.sort((a, b) => a.likes - b.likes).reverse();
+      console.log('populaire')
+    } else if (triSelect.value === 'date'){
+      // filteredMedias = filteredMedias.sort((a, b) => a.date - b.date).reverse();
+      console.log('date')
+    } else if (triSelect.value === 'titre'){
+      // filteredMedias = filteredMedias.sort((a, b) => a.title - b.title).reverse();
+      console.log('titre')
+    }
+  });
 
   const mediaSection = document.getElementsByClassName('gallery');
   console.log(mediaSection)
@@ -60,6 +61,7 @@ async function displayData(photographers, media) {
     const mediaCard = mediaModel.getMediaCardDOM();
     mediaSection[0].appendChild(mediaCard);
   });
+
 }
 
 async function init() {

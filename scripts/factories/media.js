@@ -50,10 +50,9 @@ function mediaFactory(data) {
       coeurVideo.setAttribute('class', 'fa-solid fa-heart');
 
       coeurVideo.addEventListener('click', function () {
-        counterHitLike++;
         if (counterHitLike == false) {
-        numberLikes--;
-        likesVideo.textContent = numberLikes;
+          numberLikes--;
+          likesVideo.textContent = numberLikes;
         } else if (counterHitLike == true) {
           numberLikes++;
           likesVideo.textContent = numberLikes;
