@@ -26,30 +26,78 @@ function mediaFactory(data) {
       source.setAttribute('src', _video);
       source.setAttribute('alt', titre);
 
+      const infoVideo = document.createElement('span');
+      infoVideo.setAttribute('class', 'info');
+
       const titreVideo = document.createElement('p');
       titreVideo.setAttribute('class', 'titre');
       titreVideo.textContent = titre;
       //Ajout de la balise source dans la balise video
       video.appendChild(source);
+
+      //partie Like
+      const likeBlock = document.createElement('like');
+      likeBlock.setAttribute('class', 'like');
+
+      const likesVideo = document.createElement('p');
+      likesVideo.setAttribute('class', 'like_number');
+      likesVideo.textContent = likes;
+
+      const coeurVideo = document.createElement('span');
+      coeurVideo.setAttribute('id', 'coeur');
+      coeurVideo.setAttribute('class', 'fa-solid fa-heart');
+
       //Ajout de la balise video dans la div
       div.appendChild(video);
-      div.appendChild(titreVideo);
+      div.appendChild(infoVideo);
+      infoVideo.appendChild(titreVideo);
+      infoVideo.appendChild(likeBlock);
+      likeBlock.appendChild(likesVideo);
+      likeBlock.appendChild(coeurVideo);
 
     } else {
 
       console.log('image');
       //Création de la balise img
+      let numberLikes = likes;
+
       const img = document.createElement('img');
       // img.setAttribute('class', 'photo');
       img.setAttribute('src', picture);
       img.setAttribute('alt', titre);
       img.setAttribute('class', 'media');
-      //Ajout de la balise img dans la div
-      const titreVideo = document.createElement('p');
-      titreVideo.setAttribute('class', 'titre');
-      titreVideo.textContent = titre;
+
+      const infoImage = document.createElement('span');
+      infoImage.setAttribute('class', 'info');
+
+      const titreImage = document.createElement('p');
+      titreImage.setAttribute('class', 'titre');
+      titreImage.textContent = titre;
+
+      //partie Like
+      const likeBlock = document.createElement('like');
+      likeBlock.setAttribute('class', 'like');
+
+      const likesImage = document.createElement('p');
+      likesImage.setAttribute('class', 'like_number');
+      likesImage.textContent = numberLikes;
+
+      const coeurImage = document.createElement('span');
+      coeurImage.setAttribute('id', 'coeur');
+      coeurImage.setAttribute('class', 'fa-solid fa-heart');
+
+      coeurImage.addEventListener('click', function () {
+        numberLikes++;
+        likesImage.textContent = numberLikes;
+      });
+
       div.appendChild(img);
-      div.appendChild(titreVideo);
+      div.appendChild(infoImage);
+      infoImage.appendChild(titreImage);
+      infoImage.appendChild(likeBlock);
+      likeBlock.appendChild(likesImage);
+      likeBlock.appendChild(coeurImage);
+
     }
     return div;
   }

@@ -368,12 +368,14 @@ form textarea {
     margin: 0;
 
 }
+
 .gallery .photo .info .like #coeur{
     padding-top: 3px;
     cursor: pointer;
     opacity: 1;
     margin-top: 0;
     margin-left: 5px;
+    align-items: center;
 }
 .gallery .photo .info .likes #nbLike{
     padding-top: 3px;
