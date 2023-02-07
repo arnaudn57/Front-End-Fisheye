@@ -11,6 +11,8 @@ function mediaFactory(data) {
     //Création de la div
     const div = document.createElement('div');
     div.setAttribute('class', 'photo');
+    let counterHitLike = false;
+    let numberLikes = likes;
 
 
 
@@ -47,6 +49,17 @@ function mediaFactory(data) {
       coeurVideo.setAttribute('id', 'coeur');
       coeurVideo.setAttribute('class', 'fa-solid fa-heart');
 
+      coeurVideo.addEventListener('click', function () {
+        counterHitLike++;
+        if (counterHitLike == false) {
+        numberLikes--;
+        likesVideo.textContent = numberLikes;
+        } else if (counterHitLike == true) {
+          numberLikes++;
+          likesVideo.textContent = numberLikes;
+        }
+      });
+
       //Ajout de la balise video dans la div
       div.appendChild(video);
       div.appendChild(infoVideo);
@@ -59,7 +72,6 @@ function mediaFactory(data) {
 
       console.log('image');
       //Création de la balise img
-      let numberLikes = likes;
 
       const img = document.createElement('img');
       // img.setAttribute('class', 'photo');
@@ -87,8 +99,14 @@ function mediaFactory(data) {
       coeurImage.setAttribute('class', 'fa-solid fa-heart');
 
       coeurImage.addEventListener('click', function () {
-        numberLikes++;
+        counterHitLike++;
+        if (counterHitLike == false) {
+        numberLikes--;
         likesImage.textContent = numberLikes;
+        } else if (counterHitLike == true) {
+          numberLikes++;
+          likesImage.textContent = numberLikes;
+        }
       });
 
       div.appendChild(img);
