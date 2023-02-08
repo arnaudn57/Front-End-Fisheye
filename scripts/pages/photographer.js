@@ -46,7 +46,7 @@ async function displayData(photographers, media) {
       filteredMedias = filteredMedias.sort((a, b) => a.likes - b.likes).reverse();
       console.log('populaire')
     } else if (triSelect.value === 'date'){
-      // filteredMedias = filteredMedias.sort((a, b) => a.date - b.date).reverse();
+      // filteredMedias = filteredMedias.sort((a, b) => a.date - b.date);
       console.log('date')
     } else if (triSelect.value === 'titre'){
       // filteredMedias = filteredMedias.sort((a, b) => a.title - b.title).reverse();
