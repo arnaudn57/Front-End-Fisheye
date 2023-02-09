@@ -1,3 +1,5 @@
+import { tri } from '../../scripts/utils/tri.js'
+
 async function getPhotographers() {
   // Penser à remplacer par les données récupérées dans le json
   let url = './data/photographers.json'
@@ -38,30 +40,26 @@ async function displayData(photographers, media) {
 
   let filteredMedias = media.filter((obj) => obj.photographerId == _id)
 filteredMedias = filteredMedias.sort((a, b) => a.likes - b.likes).reverse();
-  // const triSelect = document.getElementById('tri-select');
-  // triSelect.addEventListener('change', manageSort);
+  const triSelect = document.getElementById('tri-select');
+  triSelect.addEventListener('change', manageSort);
 
-  // function manageSort() {
-  //   if (triSelect.value === 'populaire'){
-  //     filteredMedias = filteredMedias.sort((a, b) => a.likes - b.likes).reverse();
-  //     console.log('populaire')
-  //   } else if (triSelect.value === 'date'){
-  //     // filteredMedias = filteredMedias.sort((a, b) => a.date - b.date);
-  //     console.log('date')
-  //   } else if (triSelect.value === 'titre'){
-  //     // filteredMedias = filteredMedias.sort((a, b) => a.title - b.title).reverse();
-  //     console.log('titre')
-  //   }
-  // }
+  function manageSort(event){
+    tri(event, filteredMedias);
+    mediaSection.innerHTML = '';
+    filteredMedias.forEach((media) => {
+      const mediaModel = mediaFactory(media);
+      const userCardDOM3 = mediaModel.getMediaCardDOM();
+      mediaSection.appendChild(userCardDOM3);
+    });
+  }
 
-
-      const mediaSection = document.getElementsByClassName('gallery');
-  console.log(mediaSection)
-  filteredMedias.forEach((media) => {
-    const mediaModel = mediaFactory(media);
-    const mediaCard = mediaModel.getMediaCardDOM();
-    mediaSection[0].appendChild(mediaCard);
-  });
+  //     const mediaSection = document.getElementsByClassName('gallery');
+  // console.log(mediaSection)
+  // filteredMedias.forEach((media) => {
+  //   const mediaModel = mediaFactory(media);
+  //   const mediaCard = mediaModel.getMediaCardDOM();
+  //   mediaSection[0].appendChild(mediaCard);
+  // });
 }
 
 
