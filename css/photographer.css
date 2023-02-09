@@ -228,14 +228,14 @@ form input {
 
 
 /* Modale and form */
-*:focus {
+/* *:focus {
     border: 5px solid #d3573c;
 }
 
 button:focus {
     border: 4px solid #901c1c;
     background-color: #d3573c;
-}
+} */
 
 *:focus-visible {
     outline: #d3573c;

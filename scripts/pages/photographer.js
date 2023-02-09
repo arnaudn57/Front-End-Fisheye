@@ -16,6 +16,8 @@ async function displayData(photographers, media) {
   const urlsearchParams = new URLSearchParams(queryString_url_id)
   const _id = urlsearchParams.get('id')
 
+
+  //Photgrapher Profile
   const filteredPhotographers = photographers.filter((obj) => obj.id == _id)
   const photographersSection = document.querySelector('.photograph-header')
 
@@ -31,38 +33,37 @@ async function displayData(photographers, media) {
     infoPrice.appendChild(userPriceDOM);
   })
 
+
+  //Media
+
   let filteredMedias = media.filter((obj) => obj.photographerId == _id)
+filteredMedias = filteredMedias.sort((a, b) => a.likes - b.likes).reverse();
+  // const triSelect = document.getElementById('tri-select');
+  // triSelect.addEventListener('change', manageSort);
 
-  //Implémenter ici le filtre
+  // function manageSort() {
+  //   if (triSelect.value === 'populaire'){
+  //     filteredMedias = filteredMedias.sort((a, b) => a.likes - b.likes).reverse();
+  //     console.log('populaire')
+  //   } else if (triSelect.value === 'date'){
+  //     // filteredMedias = filteredMedias.sort((a, b) => a.date - b.date);
+  //     console.log('date')
+  //   } else if (triSelect.value === 'titre'){
+  //     // filteredMedias = filteredMedias.sort((a, b) => a.title - b.title).reverse();
+  //     console.log('titre')
+  //   }
+  // }
 
 
-  // Filtre par popularité
-  // filteredMedias = filteredMedias.sort((a, b) => a.likes - b.likes).reverse();
-  //   console.log(filteredMedias)
-
-  const triSelect = document.getElementById('tri-select');
-  triSelect.addEventListener('change', function (){
-    if (triSelect.value === 'populaire'){
-      filteredMedias = filteredMedias.sort((a, b) => a.likes - b.likes).reverse();
-      console.log('populaire')
-    } else if (triSelect.value === 'date'){
-      // filteredMedias = filteredMedias.sort((a, b) => a.date - b.date);
-      console.log('date')
-    } else if (triSelect.value === 'titre'){
-      // filteredMedias = filteredMedias.sort((a, b) => a.title - b.title).reverse();
-      console.log('titre')
-    }
-  });
-
-  const mediaSection = document.getElementsByClassName('gallery');
+      const mediaSection = document.getElementsByClassName('gallery');
   console.log(mediaSection)
   filteredMedias.forEach((media) => {
     const mediaModel = mediaFactory(media);
     const mediaCard = mediaModel.getMediaCardDOM();
     mediaSection[0].appendChild(mediaCard);
   });
-
 }
+
 
 async function init() {
   // Récupère les datas des photographes
