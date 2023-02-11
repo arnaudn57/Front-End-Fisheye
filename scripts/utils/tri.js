@@ -2,6 +2,7 @@ export function tri(event, filteredMedia) {
   if (event.currentTarget.value == 'populaire') {
     filteredMedia.sort((a, b) => a.likes - b.likes)
     filteredMedia.reverse()
+    console.log("test");
   }
 
   if (event.currentTarget.value === 'date') {

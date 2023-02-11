@@ -1,4 +1,4 @@
-import { tri } from '../../scripts/utils/tri.js'
+import { tri } from '../utils/tri.js'
 
 async function getPhotographers() {
   // Penser à remplacer par les données récupérées dans le json
@@ -39,27 +39,30 @@ async function displayData(photographers, media) {
   //Media
 
   let filteredMedias = media.filter((obj) => obj.photographerId == _id)
-filteredMedias = filteredMedias.sort((a, b) => a.likes - b.likes).reverse();
+  filteredMedias = filteredMedias.sort((a, b) => a.likes - b.likes).reverse();
   const triSelect = document.getElementById('tri-select');
   triSelect.addEventListener('change', manageSort);
 
+
+  //Affichage des medias par defaut (populaire)
+  const mediaSection = document.getElementsByClassName('gallery');
+  filteredMedias.forEach((media) => {
+    const mediaModel = mediaFactory(media);
+    const mediaCard = mediaModel.getMediaCardDOM();
+    mediaSection[0].appendChild(mediaCard);
+  });
+
   function manageSort(event){
+    const pl = document.querySelectorAll('.photo');
+    pl.forEach((p) => p.remove())
     tri(event, filteredMedias);
-    mediaSection.innerHTML = '';
+    console.log(mediaSection.innerHTML)
     filteredMedias.forEach((media) => {
       const mediaModel = mediaFactory(media);
-      const userCardDOM3 = mediaModel.getMediaCardDOM();
-      mediaSection.appendChild(userCardDOM3);
+      const mediaCard = mediaModel.getMediaCardDOM();
+      mediaSection[0].appendChild(mediaCard);
     });
   }
-
-  //     const mediaSection = document.getElementsByClassName('gallery');
-  // console.log(mediaSection)
-  // filteredMedias.forEach((media) => {
-  //   const mediaModel = mediaFactory(media);
-  //   const mediaCard = mediaModel.getMediaCardDOM();
-  //   mediaSection[0].appendChild(mediaCard);
-  // });
 }
 
 
