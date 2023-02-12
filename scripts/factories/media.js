@@ -8,6 +8,13 @@ function mediaFactory(data) {
 
   function getMediaCardDOM() {
     console.log(data);
+
+    console.log(window.location.href)
+    const currentURL = window.location.href;
+    const url = new URL(currentURL+ `&photo=${id}`);
+    const lien = document.createElement('a');
+      // lien.setAttribute('href', );
+
     //Création de la div
     const div = document.createElement('div');
     div.setAttribute('class', 'photo');
@@ -18,6 +25,7 @@ function mediaFactory(data) {
 
     if ('video' in data) {
       console.log('video');
+
       //Création de la balise video
       const video = document.createElement('video');
       video.setAttribute('controls', 'controls');
@@ -60,8 +68,9 @@ function mediaFactory(data) {
       });
 
       //Ajout de la balise video dans la div
-      div.appendChild(video);
-      div.appendChild(infoVideo);
+      div.appendChild(lien);
+      lien.appendChild(video);
+      lien.appendChild(infoVideo);
       infoVideo.appendChild(titreVideo);
       infoVideo.appendChild(likeBlock);
       likeBlock.appendChild(likesVideo);
@@ -108,8 +117,9 @@ function mediaFactory(data) {
         }
       });
 
-      div.appendChild(img);
-      div.appendChild(infoImage);
+      div.appendChild(lien);
+      lien.appendChild(img);
+      lien.appendChild(infoImage);
       infoImage.appendChild(titreImage);
       infoImage.appendChild(likeBlock);
       likeBlock.appendChild(likesImage);

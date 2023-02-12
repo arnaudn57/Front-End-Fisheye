@@ -424,7 +424,7 @@ form textarea {
         }
 
 /* Lightbox */
-.ligthbox-modal{
+.lightbox-modal{
     display: none;
     position: fixed;
     left: 0;
@@ -449,7 +449,7 @@ form textarea {
 }
 
 
-.ligthbox-modal .titre{
+.lightbox-modal .titre{
     color: #901C1C;
     cursor: pointer;
     font-size: 18px;

@@ -1,4 +1,5 @@
 import { tri } from '../utils/tri.js'
+import { lightbox } from '../utils/lightbox.js'
 
 async function getPhotographers() {
   // Penser à remplacer par les données récupérées dans le json
@@ -63,6 +64,7 @@ async function displayData(photographers, media) {
       mediaSection[0].appendChild(mediaCard);
     });
   }
+
 }
 
 
@@ -70,6 +72,7 @@ async function init() {
   // Récupère les datas des photographes
   const { photographers, media } = await getPhotographers()
   displayData(photographers, media)
+  lightbox()
 }
 
 init()

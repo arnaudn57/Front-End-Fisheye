@@ -1,6 +1,6 @@
 function photographerFactory(data) {
   const { name, portrait, city, country, tagline, price, id } = data
-
+  console.log(data)
   const picture = `./assets/photographers/${portrait}`
 
   function getUserPicture() {
@@ -12,6 +12,7 @@ function photographerFactory(data) {
     div.appendChild(img);
     return div;
   }
+
   function getUserInfo() {
     const div = document.createElement('div');
     div.setAttribute('class', 'info');
