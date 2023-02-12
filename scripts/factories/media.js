@@ -13,11 +13,11 @@ function mediaFactory(data) {
     const currentURL = window.location.href;
     const url = new URL(currentURL+ `&photo=${id}`);
     const lien = document.createElement('a');
-      // lien.setAttribute('href', );
+      // lien.setAttribute('href', `/&photo=${id}`);
 
     //Création de la div
-    const div = document.createElement('div');
-    div.setAttribute('class', 'photo');
+    const article = document.createElement('article');
+    article.setAttribute('class', 'photo');
     let counterHitLike = false;
     let numberLikes = likes;
 
@@ -67,8 +67,8 @@ function mediaFactory(data) {
         }
       });
 
-      //Ajout de la balise video dans la div
-      div.appendChild(lien);
+      //Ajout de la balise video dans la article
+      article.appendChild(lien);
       lien.appendChild(video);
       lien.appendChild(infoVideo);
       infoVideo.appendChild(titreVideo);
@@ -117,7 +117,7 @@ function mediaFactory(data) {
         }
       });
 
-      div.appendChild(lien);
+      article.appendChild(lien);
       lien.appendChild(img);
       lien.appendChild(infoImage);
       infoImage.appendChild(titreImage);
@@ -126,7 +126,7 @@ function mediaFactory(data) {
       likeBlock.appendChild(coeurImage);
 
     }
-    return div;
+    return article;
   }
   return { titre, coeur, _video, picture, date, getMediaCardDOM }
 }
