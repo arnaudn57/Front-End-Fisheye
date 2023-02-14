@@ -8,8 +8,6 @@ function mediaFactory(data) {
 
   function getMediaCardDOM() {
     // console.log(data);
-
-
     const lien = document.createElement('a');
       // lien.setAttribute('href', `/&photo=${id}`);
 

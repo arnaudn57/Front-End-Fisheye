@@ -41,7 +41,7 @@ async function displayData(photographers, media) {
 
 
   //Media
-  //trie des medias
+  //Récuperation des medias du photographe selectionné
   let filteredMedias = media.filter((obj) => obj.photographerId == _id)
   filteredMedias = filteredMedias.sort((a, b) => a.likes - b.likes).reverse();
   const triSelect = document.getElementById('tri-select');
@@ -62,7 +62,6 @@ async function displayData(photographers, media) {
 
     //Import function tri from utils/tri.js
     tri(event, filteredMedias);
-    // console.log(mediaSection.innerHTML)
 
     //Affichage des medias filtrés
     filteredMedias.forEach((media) => {
@@ -92,14 +91,26 @@ function allLikePhotographe(){
     const footerSection = document.getElementsByClassName('infos');
     footerSection[0].appendChild(likesDivDom);
     likesDivDom.appendChild(likesDom);
-    console.log("work")
+  }
+
+  function lightboxStart(media){
+    const allMedias = document.querySelectorAll('.photo');
+    let selectedMediaTitle = null;
+    allMedias.forEach((media_selected) => {
+      media_selected.addEventListener('click', function () {
+        selectedMediaTitle = media_selected.getElementsByClassName('titre')[0].innerText;
+        // console.log(media_selected.getElementsByClassName('titre')[0].innerText)
+        lightbox(media, _id, selectedMediaTitle);
+      });
+    // lightbox(media, _id);
+    });
   }
 
 async function init() {
   // Récupère les datas des photographes
   const { photographers, media } = await getPhotographers();
   displayData(photographers, media);
-  lightbox(media, _id);
-}
+  lightboxStart(media);
 
-init()
+}
+init();
