@@ -8,7 +8,8 @@ function displayModal() {
 
   //Modification du H2 modal contact
   const actualName = document.querySelector('.info h2').innerText;
-  modalContact.innerText = ` Contacter-moi ${actualName}`;
+  modalContact.innerText = ` Contactez-moi ${actualName}`;
+
 
   //Dom form submit BTN
   const submitButton = document.getElementsByClassName('contact_button');

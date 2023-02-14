@@ -18,7 +18,8 @@ function mediaFactory(data) {
     //Création de la div
     const article = document.createElement('article');
     article.setAttribute('class', 'photo');
-    let counterHitLike = false;
+    let counterHitLikeVideo = false;
+    let counterHitLikeImage = false;
     let numberLikes = likes;
 
 
@@ -58,16 +59,19 @@ function mediaFactory(data) {
       coeurVideo.setAttribute('class', 'fa-solid fa-heart');
 
       coeurVideo.addEventListener('click', function () {
-        if (counterHitLike == false) {
-          numberLikes--;
-          likesVideo.textContent = numberLikes;
-        } else if (counterHitLike == true) {
+        // counterHitLike++;
+      if (counterHitLikeVideo == false) {
           numberLikes++;
           likesVideo.textContent = numberLikes;
+          counterHitLikeVideo = true;
+        } else if (counterHitLikeVideo == true) {
+          numberLikes--;
+          likesVideo.textContent = numberLikes;
+          counterHitLikeVideo = false;
         }
       });
 
-      //Ajout de la balise video dans la article
+      //Ajout de la balise video dans l'article
       article.appendChild(lien);
       lien.appendChild(video);
       lien.appendChild(infoVideo);
@@ -107,16 +111,19 @@ function mediaFactory(data) {
       coeurImage.setAttribute('class', 'fa-solid fa-heart');
 
       coeurImage.addEventListener('click', function () {
-        counterHitLike++;
-        if (counterHitLike == false) {
-        numberLikes--;
-        likesImage.textContent = numberLikes;
-        } else if (counterHitLike == true) {
+        // counterHitLike++;
+        if (counterHitLikeImage == false) {
           numberLikes++;
           likesImage.textContent = numberLikes;
+          counterHitLikeImage = true;
+        } else if (counterHitLikeImage == true) {
+          numberLikes--;
+          likesImage.textContent = numberLikes;
+          counterHitLikeImage = false;
         }
       });
 
+      //Ajout de la balise img dans l'article
       article.appendChild(lien);
       lien.appendChild(img);
       lien.appendChild(infoImage);

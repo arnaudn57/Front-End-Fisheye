@@ -2,7 +2,6 @@ import { tri } from '../utils/tri.js'
 import { lightbox } from '../utils/lightbox.js'
 
 async function getPhotographers() {
-  // Penser à remplacer par les données récupérées dans le json
   let url = './data/photographers.json'
   try {
     let res = await fetch(url)
@@ -55,9 +54,13 @@ async function displayData(photographers, media) {
 
   function manageSort(event){
     const pl = document.querySelectorAll('.photo');
+    //Toutes les photos sont supprimées
     pl.forEach((p) => p.remove())
+
+    //Import function tri from utils/tri.js
     tri(event, filteredMedias);
-    console.log(mediaSection.innerHTML)
+    // console.log(mediaSection.innerHTML)
+    //Affichage des medias filtrés
     filteredMedias.forEach((media) => {
       const mediaModel = mediaFactory(media);
       const mediaCard = mediaModel.getMediaCardDOM();
