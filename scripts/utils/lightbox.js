@@ -1,10 +1,9 @@
-export function lightbox(){
-// console.log('Lightbox function')
-const lightboxEvent = document.querySelectorAll('.photo');
-  console.log(lightboxEvent[0].innerHTML)
-  lightboxEvent.forEach((photo) => photo.addEventListener('click', (event) => getMediaId()));
-}
+export function lightbox(medias, _id){
+  // const { image, video, title, likes, id, date } = data;
+  const photographerid = _id;
+  console.log(medias.filter((obj) => obj.photographerId == photographerid));
+  const allMediasPhotographers = document.getElementsByClassName('titre');
 
-function getMediaId(){
-  console.log('getMediaId function')
+
+  // console.log(allMediasPhotographers[0]);
 }

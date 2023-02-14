@@ -7,11 +7,9 @@ function mediaFactory(data) {
   const coeur = `./assets/images/${likes}`;
 
   function getMediaCardDOM() {
-    console.log(data);
+    // console.log(data);
 
-    console.log(window.location.href)
-    const currentURL = window.location.href;
-    const url = new URL(currentURL+ `&photo=${id}`);
+
     const lien = document.createElement('a');
       // lien.setAttribute('href', `/&photo=${id}`);
 
@@ -25,7 +23,7 @@ function mediaFactory(data) {
 
 
     if ('video' in data) {
-      console.log('video');
+      // console.log('video');
 
       //Création de la balise video
       const video = document.createElement('video');
@@ -82,7 +80,7 @@ function mediaFactory(data) {
 
     } else {
 
-      console.log('image');
+      // console.log('image');
       //Création de la balise img
 
       const img = document.createElement('img');

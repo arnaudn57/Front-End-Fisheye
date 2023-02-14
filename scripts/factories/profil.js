@@ -1,6 +1,6 @@
 function photographerFactory(data) {
   const { name, portrait, city, country, tagline, price, id } = data
-  console.log(data)
+  // console.log(data)
   const picture = `./assets/photographers/${portrait}`
 
   function getUserPicture() {
@@ -39,6 +39,20 @@ function photographerFactory(data) {
     return div
   }
 
+  function getUserLikes(){
+    const likesDivDom = document.createElement('div');
+    likesDivDom.setAttribute('class', 'likes');
+    let likesDom = document.createElement('likes');
+
+    let totalLikesMedias = 0;
+    let domTotalLikesMedias = document.querySelectorAll('.like_number');
+    domTotalLikesMedias.forEach((like) => function(){
+      totalLikesMedias += parseInt(like.innerText);
+    });
+    console.log(totalLikesMedias);
+    likesDom.innerText = totalLikesMedias;
+  }
+
   function getUserPriceDom() {
     const div = document.createElement('div');
     div.setAttribute('class', 'prix');
@@ -50,5 +64,6 @@ function photographerFactory(data) {
     return div;
   }
 
-  return { name, picture, getUserPicture, getUserInfo, getUserPriceDom }
+
+  return { name, picture, getUserPicture, getUserInfo, getUserLikes, getUserPriceDom }
 }
