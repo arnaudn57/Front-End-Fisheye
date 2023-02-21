@@ -67,7 +67,7 @@ async function displayData(photographers, media) {
     //Affichage des medias filtrés
     filteredMedias.forEach((media) => {
       const mediaModel = mediaFactory(media);
-      const mediaCard = mediaModel.getMediaCardDOM();
+      const mediaCard = mediaModel.getMediaCardDOM(filteredMedias.indexOf(media));
       mediaSection[0].appendChild(mediaCard);
     });
   }
