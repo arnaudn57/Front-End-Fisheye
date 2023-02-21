@@ -1,5 +1,4 @@
 import { tri } from '../utils/tri.js'
-import { lightbox } from '../utils/lightbox.js'
 
 async function getPhotographers() {
   let url = './data/photographers.json'
@@ -46,13 +45,15 @@ async function displayData(photographers, media) {
   filteredMedias = filteredMedias.sort((a, b) => a.likes - b.likes).reverse();
   const triSelect = document.getElementById('tri-select');
   triSelect.addEventListener('change', manageSort);
+  console.log(filteredMedias)
 
   //Affichage des medias par defaut (populaire)
   const mediaSection = document.getElementsByClassName('gallery');
   filteredMedias.forEach((media) => {
     const mediaModel = mediaFactory(media);
-    const mediaCard = mediaModel.getMediaCardDOM();
+    const mediaCard = mediaModel.getMediaCardDOM(filteredMedias.indexOf(media));
     mediaSection[0].appendChild(mediaCard);
+    // console.log(filteredMedias.indexOf(media))
   });
 
   function manageSort(event){
@@ -86,7 +87,7 @@ function allLikePhotographe(){
     likesDivDom.setAttribute('class', 'likes');
 
     let likesDom = document.createElement('likes');
-    likesDom.innerText = photographerAllLike;
+    likesDom.innerHTML = photographerAllLike + '<span class="fa-solid fa-heart"></span>';
 
     const footerSection = document.getElementsByClassName('infos');
     footerSection[0].appendChild(likesDivDom);
@@ -100,7 +101,7 @@ function allLikePhotographe(){
       media_selected.addEventListener('click', function () {
         selectedMediaTitle = media_selected.getElementsByClassName('titre')[0].innerText;
         // console.log(media_selected.getElementsByClassName('titre')[0].innerText)
-        lightbox(media, _id, selectedMediaTitle);
+        // lightbox(media, _id, selectedMediaTitle);
       });
     // lightbox(media, _id);
     });

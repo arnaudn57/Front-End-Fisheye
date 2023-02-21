@@ -514,7 +514,55 @@ form textarea {
 
 }
 
-.lightbox_prev, .lightbox_next{
-    border: none;
-    background-color: transparent;
+
+.lightbox{
+  display: none;
+  position: absolute;
+  top: 25%;
+  left: 30%;
+}
+
+.lightbox-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.main-media img {
+  width: 700px;
+  height: auto;
+  max-height: 700px;
+  object-fit: cover;
+}
+
+.title-current-media {
+  color: #901C1C;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 31px;
+}
+
+#btn-close-lightbox {
+  filter: brightness(0) saturate(100%) invert(20%) sepia(30%) saturate(6555%) hue-rotate(349deg) brightness(73%) contrast(90%);
+}
+
+#btn-close-lightbox:hover, .prev:hover, .next:hover {
+  cursor: pointer;
+}
+
+likes{
+  display: flex;
+  align-items: center;
+}
+
+.infos {
+  gap: 70px;
+  width: auto;
+}
+
+.errors {
+  border: 2px solid red;
 }

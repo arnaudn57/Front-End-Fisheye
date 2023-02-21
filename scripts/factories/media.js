@@ -1,23 +1,23 @@
 function mediaFactory(data) {
   const { image, video, title, likes, id, date } = data;
-
+  console.log(data)
   const picture = `./assets/images/${image}`;
   const _video = `./assets/images/${video}`;
   const titre = title;
   const coeur = `./assets/images/${likes}`;
 
-  function getMediaCardDOM() {
+  function getMediaCardDOM(mediaIndex) {
     // console.log(data);
     const lien = document.createElement('a');
       // lien.setAttribute('href', `/&photo=${id}`);
-
+    console.log(mediaIndex);
     //Création de la div
     const article = document.createElement('article');
     article.setAttribute('class', 'photo');
     let counterHitLikeVideo = false;
     let counterHitLikeImage = false;
     let numberLikes = likes;
-
+    // let counterLightbox = 0;
 
 
     if ('video' in data) {
@@ -25,8 +25,9 @@ function mediaFactory(data) {
 
       //Création de la balise video
       const video = document.createElement('video');
-      video.setAttribute('controls', 'controls');
+      // video.setAttribute('controls', 'controls');
       video.setAttribute('class', 'media');
+      video.setAttribute('onclick', "openLightbox("+ mediaIndex +")");
 
       //Création de la balise source
       const source = document.createElement('source');
@@ -53,7 +54,7 @@ function mediaFactory(data) {
       const coeurVideo = document.createElement('span');
       coeurVideo.setAttribute('id', 'coeur');
       coeurVideo.setAttribute('class', 'fa-solid fa-heart');
-
+      coeurVideo.setAttribute('aria-label', 'likes')
       coeurVideo.addEventListener('click', function () {
         // counterHitLike++;
       if (counterHitLikeVideo == false) {
@@ -75,7 +76,6 @@ function mediaFactory(data) {
       infoVideo.appendChild(likeBlock);
       likeBlock.appendChild(likesVideo);
       likeBlock.appendChild(coeurVideo);
-
     } else {
 
       // console.log('image');
@@ -86,6 +86,7 @@ function mediaFactory(data) {
       img.setAttribute('src', picture);
       img.setAttribute('alt', titre);
       img.setAttribute('class', 'media');
+      img.setAttribute('onclick', "openLightbox(" + mediaIndex +")");
 
       const infoImage = document.createElement('span');
       infoImage.setAttribute('class', 'info');
@@ -105,6 +106,7 @@ function mediaFactory(data) {
       const coeurImage = document.createElement('span');
       coeurImage.setAttribute('id', 'coeur');
       coeurImage.setAttribute('class', 'fa-solid fa-heart');
+      coeurImage.setAttribute('aria-label', 'likes')
 
       coeurImage.addEventListener('click', function () {
         // counterHitLike++;
@@ -119,6 +121,7 @@ function mediaFactory(data) {
         }
       });
 
+      // console.log(counterLightbox);
       //Ajout de la balise img dans l'article
       article.appendChild(lien);
       lien.appendChild(img);
@@ -127,9 +130,83 @@ function mediaFactory(data) {
       infoImage.appendChild(likeBlock);
       likeBlock.appendChild(likesImage);
       likeBlock.appendChild(coeurImage);
-
     }
     return article;
   }
+
   return { titre, coeur, _video, picture, date, getMediaCardDOM }
+}
+
+let currentMedias = 0;
+function openLightbox(index){
+
+  const lightbox = document.getElementsByClassName('lightbox');
+  lightbox[0].style.display = 'flex';
+
+  const main = document.getElementById('main');
+  main.style.display = 'none';
+
+  const header =  document.getElementsByTagName('header')[0];
+  header.style.display = 'none';
+
+  console.log('ok' + index);
+  const allMedias = Array.from(document.getElementsByClassName('media'));
+  // console.log(allMedias)
+  const lightboxBox = document.getElementsByClassName('main-media')[0];
+  lightboxBox.innerHTML = '';
+  console.log(allMedias[index].tagName)
+  if (allMedias[index].tagName = 'IMG'){
+    const lightboxImage = document.createElement('img');
+    lightboxImage.setAttribute('src', allMedias[index].getAttribute('src'));
+
+    const titleCurrentMedia = document.createElement('p');
+    titleCurrentMedia.setAttribute('class', 'title-current-media');
+    titleCurrentMedia.textContent = allMedias[index].getAttribute('alt');
+
+    lightboxBox.appendChild(lightboxImage);
+    lightboxBox.appendChild(titleCurrentMedia);
+    currentMedias = index;
+  } else if(allMedias[index].tagName = 'VIDEO') {
+    console.log('video')
+    // const lightboxVideo = document.createElement('video');
+    // lightboxVideo.setAttribute('controls', 'controls');
+
+    // const lightboxSource = document.createElement('source');
+    // lightboxSource.setAttribute('src', allMedias[index].getAttribute('src'));
+    // lightboxVideo.appendChild(lightboxSource);
+    // currentMedias = index;
+    // lightboxBox.appendChild(lightboxVideo);
+  }
+
+}
+
+
+//Faire Swicth case (arrow-left)
+document.addEventListener('keydown', function (e) {
+  if (e.keyCode == 37) {
+    previousMedia();
+  } else if (e.keyCode == 39) {
+    nextMedia();
+  } else if (e.keyCode == 27) {
+    closeLightbox();
+  }
+});
+
+function nextMedia(){
+  openLightbox(currentMedias + 1);
+}
+
+function previousMedia(){
+  openLightbox(currentMedias - 1);
+}
+
+function closeLightbox(){
+  const lightbox = document.getElementsByClassName('lightbox')[0];
+  lightbox.style.display = 'none';
+
+  const main = document.getElementById('main');
+  main.style.display = 'block';
+
+  const header = document.getElementByTagName('header')[0];
+  header.style.display = 'block';
 }

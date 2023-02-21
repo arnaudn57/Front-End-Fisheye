@@ -29,9 +29,11 @@ function submitForm(event){
     let form = document.getElementsByName('contact');
     form = form[0];
     if (validation()){
-      event.preventDefault();
       form.reset();
       closeModal();
+      event.preventDefault();
+    } else {
+      event.preventDefault();
     }
 }
 
@@ -40,6 +42,9 @@ function validateFirstName(firstNameValue){
   if (firstNameValue.length >= 2 && firstNameValue.match(/^[a-zA-Z]+$/)) {
     console.log(firstNameValue)
     return true;
+  } else {
+    const firstNameInput = document.getElementById('firstname');
+    firstNameInput.style.border = '2px solid red';
   }
 }
 
@@ -48,6 +53,9 @@ function validateLastName(lastNameValue){
     if (lastNameValue.length >= 2 && lastNameValue.match(/^[a-zA-Z]+$/)) {
     console.log(lastNameValue)
     return true;
+  } else {
+    const lastNameInput = document.getElementById('lastname');
+    lastNameInput.style.border = '2px solid red';
   }
 }
 
@@ -56,6 +64,9 @@ function validateEmail(emailValue){
   if (emailValue.match(/^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/)) {
     console.log(emailValue)
     return true;
+  } else {
+    const emailInput = document.getElementById('email');
+    emailInput.style.border = '2px solid red';
   }
 }
 
@@ -64,6 +75,9 @@ function validateMessage(messageValue){
   if (messageValue.length > 1) {
     console.log(messageValue)
     return true;
+  } else {
+    const messageInput = document.getElementById('message');
+    messageInput.style.border = '2px solid red';
   }
 }
 

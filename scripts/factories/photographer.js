@@ -11,13 +11,13 @@ function photographerFactory(data) {
         // Ajout de lien
         const link = document.createElement('a');
         link.href = '../../photographer.html?id=' + id;
-        link.setAttribute("aria-label", "Lien vers la page de " + name);
+        link.setAttribute("aria-label", name);
         // link.classList.add('photographer-card-link');
 
         // Ajout de l'image
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
-        img.setAttribute("alt", "Photo de " + name);
+        img.setAttribute("alt", name);
         // img.classList.add('photographer-card-avatar');
 
         //Ajout du nom
