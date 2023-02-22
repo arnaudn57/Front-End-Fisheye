@@ -49,13 +49,9 @@ async function displayData(photographers, media) {
 
   //Affichage des medias par defaut (populaire)
   const mediaSection = document.getElementsByClassName('gallery');
-  filteredMedias.forEach((media) => {
-    const mediaModel = mediaFactory(media);
-    const mediaCard = mediaModel.getMediaCardDOM(filteredMedias.indexOf(media));
-    mediaSection[0].appendChild(mediaCard);
-    // console.log(filteredMedias.indexOf(media))
-  });
+  displayMediasGallery(filteredMedias);
 
+  //Function de mangement du tri
   function manageSort(event){
     const pl = document.querySelectorAll('.photo');
     //Toutes les photos sont supprimées
@@ -64,36 +60,12 @@ async function displayData(photographers, media) {
     //Import function tri from utils/tri.js
     tri(event, filteredMedias);
 
-    //Affichage des medias filtrés
-    filteredMedias.forEach((media) => {
-      const mediaModel = mediaFactory(media);
-      const mediaCard = mediaModel.getMediaCardDOM(filteredMedias.indexOf(media));
-      mediaSection[0].appendChild(mediaCard);
-    });
+    //Affichage des medias triés
+    displayMediasGallery(filteredMedias);
   }
   //Affichage des likes totaux du photographe
   allLikePhotographe();
 }
-
-// function allLikePhotographe(){
-//     //Récuperation de tous les likes
-//     let photographerAllLike = 0;
-//     const allLikes = document.querySelectorAll('.like_number');
-//     allLikes.forEach((like) => {
-//       photographerAllLike += parseInt(like.innerText);
-//     });
-
-//     const likesDivDom = document.createElement('div');
-//     likesDivDom.setAttribute('class', 'likes');
-
-//     let likesDom = document.createElement('likes');
-//     likesDom.innerHTML = photographerAllLike + '<span class="fa-solid fa-heart"></span>';
-
-//     const footerSection = document.getElementsByClassName('infos');
-//     footerSection[0].appendChild(likesDivDom);
-//     likesDivDom.appendChild(likesDom);
-//   }
-
 async function init() {
   // Récupère les datas des photographes
   const { photographers, media } = await getPhotographers();
