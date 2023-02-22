@@ -61,10 +61,12 @@ function mediaFactory(data) {
           numberLikes++;
           likesVideo.textContent = numberLikes;
           counterHitLikeVideo = true;
+          allLikePhotographe();
         } else if (counterHitLikeVideo == true) {
           numberLikes--;
           likesVideo.textContent = numberLikes;
           counterHitLikeVideo = false;
+          allLikePhotographe();
         }
       });
 
@@ -114,10 +116,12 @@ function mediaFactory(data) {
           numberLikes++;
           likesImage.textContent = numberLikes;
           counterHitLikeImage = true;
+          allLikePhotographe();
         } else if (counterHitLikeImage == true) {
           numberLikes--;
           likesImage.textContent = numberLikes;
           counterHitLikeImage = false;
+          allLikePhotographe();
         }
       });
 
@@ -155,6 +159,7 @@ function openLightbox(index){
   const lightboxBox = document.getElementsByClassName('main-media')[0];
   lightboxBox.innerHTML = '';
   console.log(allMedias[index].tagName)
+
   if (allMedias[index].tagName = 'IMG'){
     const lightboxImage = document.createElement('img');
     lightboxImage.setAttribute('src', allMedias[index].getAttribute('src'));
@@ -166,7 +171,7 @@ function openLightbox(index){
     lightboxBox.appendChild(lightboxImage);
     lightboxBox.appendChild(titleCurrentMedia);
     currentMedias = index;
-  } else if(allMedias[index].tagName = 'VIDEO') {
+  } else {
     console.log('video')
     // const lightboxVideo = document.createElement('video');
     // lightboxVideo.setAttribute('controls', 'controls');

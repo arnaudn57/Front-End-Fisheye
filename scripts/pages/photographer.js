@@ -94,19 +94,6 @@ function allLikePhotographe(){
     likesDivDom.appendChild(likesDom);
   }
 
-  function lightboxStart(media){
-    const allMedias = document.querySelectorAll('.photo');
-    let selectedMediaTitle = null;
-    allMedias.forEach((media_selected) => {
-      media_selected.addEventListener('click', function () {
-        selectedMediaTitle = media_selected.getElementsByClassName('titre')[0].innerText;
-        // console.log(media_selected.getElementsByClassName('titre')[0].innerText)
-        // lightbox(media, _id, selectedMediaTitle);
-      });
-    // lightbox(media, _id);
-    });
-  }
-
 async function init() {
   // Récupère les datas des photographes
   const { photographers, media } = await getPhotographers();
