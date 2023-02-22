@@ -211,6 +211,6 @@ function closeLightbox(){
   const main = document.getElementById('main');
   main.style.display = 'block';
 
-  const header = document.getElementByTagName('header')[0];
+  const header = document.getElementsByTagName('header')[0];
   header.style.display = 'block';
 }
