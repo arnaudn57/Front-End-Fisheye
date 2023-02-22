@@ -155,12 +155,12 @@ function openLightbox(index){
 
   console.log('ok' + index);
   const allMedias = Array.from(document.getElementsByClassName('media'));
-  // console.log(allMedias)
+  console.log(allMedias)
   const lightboxBox = document.getElementsByClassName('main-media')[0];
   lightboxBox.innerHTML = '';
-  console.log(allMedias[index].tagName)
+  const typeMedia = allMedias[index].tagName;
 
-  if (allMedias[index].tagName = 'IMG'){
+  if (typeMedia == 'IMG'){
     const lightboxImage = document.createElement('img');
     lightboxImage.setAttribute('src', allMedias[index].getAttribute('src'));
 
@@ -172,15 +172,14 @@ function openLightbox(index){
     lightboxBox.appendChild(titleCurrentMedia);
     currentMedias = index;
   } else {
-    console.log('video')
-    // const lightboxVideo = document.createElement('video');
-    // lightboxVideo.setAttribute('controls', 'controls');
+    const lightboxVideo = document.createElement('video');
+    lightboxVideo.setAttribute('controls', 'controls');
 
-    // const lightboxSource = document.createElement('source');
-    // lightboxSource.setAttribute('src', allMedias[index].getAttribute('src'));
-    // lightboxVideo.appendChild(lightboxSource);
-    // currentMedias = index;
-    // lightboxBox.appendChild(lightboxVideo);
+    const lightboxSource = document.createElement('source');
+    lightboxSource.setAttribute('src', allMedias[index].children[0].getAttribute('src'));
+    lightboxVideo.appendChild(lightboxSource);
+    currentMedias = index;
+    lightboxBox.appendChild(lightboxVideo);
   }
 
 }
