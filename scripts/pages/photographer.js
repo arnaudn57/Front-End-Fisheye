@@ -75,24 +75,24 @@ async function displayData(photographers, media) {
   allLikePhotographe();
 }
 
-function allLikePhotographe(){
-    //Récuperation de tous les likes
-    let photographerAllLike = 0;
-    const allLikes = document.querySelectorAll('.like_number');
-    allLikes.forEach((like) => {
-      photographerAllLike += parseInt(like.innerText);
-    });
+// function allLikePhotographe(){
+//     //Récuperation de tous les likes
+//     let photographerAllLike = 0;
+//     const allLikes = document.querySelectorAll('.like_number');
+//     allLikes.forEach((like) => {
+//       photographerAllLike += parseInt(like.innerText);
+//     });
 
-    const likesDivDom = document.createElement('div');
-    likesDivDom.setAttribute('class', 'likes');
+//     const likesDivDom = document.createElement('div');
+//     likesDivDom.setAttribute('class', 'likes');
 
-    let likesDom = document.createElement('likes');
-    likesDom.innerHTML = photographerAllLike + '<span class="fa-solid fa-heart"></span>';
+//     let likesDom = document.createElement('likes');
+//     likesDom.innerHTML = photographerAllLike + '<span class="fa-solid fa-heart"></span>';
 
-    const footerSection = document.getElementsByClassName('infos');
-    footerSection[0].appendChild(likesDivDom);
-    likesDivDom.appendChild(likesDom);
-  }
+//     const footerSection = document.getElementsByClassName('infos');
+//     footerSection[0].appendChild(likesDivDom);
+//     likesDivDom.appendChild(likesDom);
+//   }
 
 async function init() {
   // Récupère les datas des photographes

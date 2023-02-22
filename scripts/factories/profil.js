@@ -53,3 +53,34 @@ function photographerFactory(data) {
 
   return { name, picture, getUserPicture, getUserInfo, getUserPriceDom }
 }
+
+function allLikePhotographe(){
+    //Récuperation de tous les likes
+    let photographerAllLike = 0;
+    const allLikes = document.querySelectorAll('.like_number');
+    allLikes.forEach((like) => {
+      photographerAllLike += parseInt(like.innerText);
+    });
+
+    const likesDivDom = document.createElement('div');
+    likesDivDom.setAttribute('class', 'likes');
+
+    let likesDom = document.createElement('likes');
+    likesDom.innerHTML = photographerAllLike + '<span class="fa-solid fa-heart"></span>';
+
+    const footerSection = document.getElementsByClassName('infos');
+    footerSection[0].appendChild(likesDivDom);
+    likesDivDom.appendChild(likesDom);
+  }
+
+function incrementAllLikes() {
+  const likesDom = document.getElementsByTagName('likes')[0];
+  // likesDom.innerHTML = " ";
+  likesDom.innerHTML = (parseInt(likesDom.innerText) + 1) + '<span class="fa-solid fa-heart"></span>';
+}
+
+function decrementAllLikes() {
+  const likesDom = document.getElementsByTagName('likes')[0];
+  // likesDom.innerHTML = " ";
+  likesDom.innerHTML = (parseInt(likesDom.innerText) - 1) + '<span class="fa-solid fa-heart"></span>';
+}

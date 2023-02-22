@@ -61,12 +61,12 @@ function mediaFactory(data) {
           numberLikes++;
           likesVideo.textContent = numberLikes;
           counterHitLikeVideo = true;
-          allLikePhotographe();
+          incrementAllLikes();
         } else if (counterHitLikeVideo == true) {
           numberLikes--;
           likesVideo.textContent = numberLikes;
           counterHitLikeVideo = false;
-          allLikePhotographe();
+          decrementAllLikes();
         }
       });
 
@@ -116,12 +116,12 @@ function mediaFactory(data) {
           numberLikes++;
           likesImage.textContent = numberLikes;
           counterHitLikeImage = true;
-          allLikePhotographe();
+          incrementAllLikes();
         } else if (counterHitLikeImage == true) {
           numberLikes--;
           likesImage.textContent = numberLikes;
           counterHitLikeImage = false;
-          allLikePhotographe();
+          decrementAllLikes();
         }
       });
 
