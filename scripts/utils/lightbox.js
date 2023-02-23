@@ -10,14 +10,17 @@ function openLightbox(index){
   const header =  document.getElementsByTagName('header')[0];
   header.style.display = 'none';
 
-  console.log('ok' + index);
   const allMedias = Array.from(document.getElementsByClassName('media'));
-  console.log(allMedias)
+
   const lightboxBox = document.getElementsByClassName('main-media')[0];
   lightboxBox.innerHTML = '';
+
   const typeMedia = allMedias[index].tagName;
 
   if (typeMedia == 'IMG'){
+
+    //Si le media est une image
+
     const lightboxImage = document.createElement('img');
     lightboxImage.setAttribute('src', allMedias[index].getAttribute('src'));
 
@@ -29,14 +32,18 @@ function openLightbox(index){
     lightboxBox.appendChild(titleCurrentMedia);
     currentMedias = index;
   } else {
+
+    //Si le media est une vidéo
     const lightboxVideo = document.createElement('video');
     lightboxVideo.setAttribute('controls', 'controls');
 
     const lightboxSource = document.createElement('source');
     lightboxSource.setAttribute('src', allMedias[index].children[0].getAttribute('src'));
+
     lightboxVideo.appendChild(lightboxSource);
-    currentMedias = index;
     lightboxBox.appendChild(lightboxVideo);
+
+    currentMedias = index;
   }
 
 }
@@ -44,12 +51,23 @@ function openLightbox(index){
 
 //Faire Swicth case (arrow-left)
 document.addEventListener('keydown', function (e) {
-  if (e.keyCode == 37) {
+
+  if (e.defaultPrevented) {
     previousMedia();
-  } else if (e.keyCode == 39) {
-    nextMedia();
-  } else if (e.keyCode == 27) {
-    closeLightbox();
+  }
+
+  switch (e.key){
+    case 'ArrowLeft':
+      previousMedia();
+      break;
+    case 'ArrowRight':
+      nextMedia();
+      break;
+    case 'Escape':
+      closeLightbox();
+      break;
+    default:
+      return;
   }
 });
 
