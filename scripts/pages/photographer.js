@@ -1,5 +1,6 @@
 import { tri } from '../utils/tri.js'
 
+//Fetch des données des photographes
 async function getPhotographers() {
   let url = './data/photographers.json'
   try {
@@ -10,13 +11,13 @@ async function getPhotographers() {
   }
 }
 
+//Récupération de l'id du photographe dans l'url
 const queryString_url_id = window.location.search
 //Extraction de l'id
 const urlsearchParams = new URLSearchParams(queryString_url_id)
 const _id = urlsearchParams.get('id')
-async function displayData(photographers, media) {
-  //Récupération de l'id dans l'url
 
+async function displayData(photographers, media) {
 
   //Photgrapher Profile
   const filteredPhotographers = photographers.filter((obj) => obj.id == _id)
@@ -63,7 +64,7 @@ async function displayData(photographers, media) {
     //Affichage des medias triés
     displayMediasGallery(filteredMedias);
   }
-  //Affichage des likes totaux du photographe
+  //Récuperation des likes des medias + affichage de likes dans le footer
   allLikePhotographe();
 }
 async function init() {

@@ -16,7 +16,6 @@ function openLightbox(index){
   lightboxBox.innerHTML = '';
 
   const typeMedia = allMedias[index].tagName;
-
   if (typeMedia == 'IMG'){
 
     //Si le media est une image
@@ -48,10 +47,8 @@ function openLightbox(index){
 
 }
 
-
-//Faire Swicth case (arrow-left)
+//Switch pour le controle des médias dans la lightbox
 document.addEventListener('keydown', function (e) {
-
   if (e.defaultPrevented) {
     previousMedia();
   }
@@ -70,6 +67,7 @@ document.addEventListener('keydown', function (e) {
       return;
   }
 });
+
 
 //Function pour aller au media suivant dans la lightbox
 function nextMedia(){

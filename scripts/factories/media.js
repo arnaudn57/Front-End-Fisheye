@@ -7,21 +7,17 @@ function mediaFactory(data) {
   const coeur = `./assets/images/${likes}`;
 
   function getMediaCardDOM(mediaIndex) {
-    // console.log(data);
     const lien = document.createElement('a');
-      // lien.setAttribute('href', `/&photo=${id}`);
-    console.log(mediaIndex);
+
     //Création de la div
     const article = document.createElement('article');
     article.setAttribute('class', 'photo');
     let counterHitLikeVideo = false;
     let counterHitLikeImage = false;
     let numberLikes = likes;
-    // let counterLightbox = 0;
-
 
     if ('video' in data) {
-      // console.log('video');
+      //Si le media est une vidéo
 
       //Création de la balise video
       const video = document.createElement('video');
@@ -79,10 +75,9 @@ function mediaFactory(data) {
       likeBlock.appendChild(likesVideo);
       likeBlock.appendChild(coeurVideo);
     } else {
+      //Si le media est une image
 
-      // console.log('image');
       //Création de la balise img
-
       const img = document.createElement('img');
       // img.setAttribute('class', 'photo');
       img.setAttribute('src', picture);
