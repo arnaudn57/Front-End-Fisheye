@@ -4,22 +4,31 @@ function openLightbox(index){
   const lightbox = document.getElementsByClassName('lightbox');
   lightbox[0].style.display = 'flex';
 
+  //Masque le main et le header
   const main = document.getElementById('main');
   main.style.display = 'none';
-
   const header =  document.getElementsByTagName('header')[0];
   header.style.display = 'none';
 
+  //Récupère tous les médias dans l'ordre du DOM
   const allMedias = Array.from(document.getElementsByClassName('media'));
+
+  //Retour au premier media si le dernier est atteint
+  if (index > allMedias.length - 1){
+    index = 0;
+  } else if (index < 0){
+    //Retour au dernier media si le premier est atteint
+    index = allMedias.length - 1;
+  }
 
   const lightboxBox = document.getElementsByClassName('main-media')[0];
   lightboxBox.innerHTML = '';
 
+  //Récupère le type de média pour adpater l'affichage du media si IMG ou VIDEO
   const typeMedia = allMedias[index].tagName;
   if (typeMedia == 'IMG'){
 
-    //Si le media est une image
-
+    //Si le media est une image, construction de main-content IMAGE de la lightbox
     const lightboxImage = document.createElement('img');
     lightboxImage.setAttribute('src', allMedias[index].getAttribute('src'));
 
@@ -29,10 +38,11 @@ function openLightbox(index){
 
     lightboxBox.appendChild(lightboxImage);
     lightboxBox.appendChild(titleCurrentMedia);
+
     currentMedias = index;
   } else {
 
-    //Si le media est une vidéo
+    //Si le media est une vidéo, construction de main-content VIDEO de la lightbox
     const lightboxVideo = document.createElement('video');
     lightboxVideo.setAttribute('controls', 'controls');
 
@@ -54,12 +64,15 @@ document.addEventListener('keydown', function (e) {
   }
 
   switch (e.key){
+    //Si flèche gauche retour au média précédent
     case 'ArrowLeft':
       previousMedia();
       break;
+    //Si flèche droite retour au média suivant
     case 'ArrowRight':
       nextMedia();
       break;
+    //Si touche échap fermeture de la lightbox
     case 'Escape':
       closeLightbox();
       break;
