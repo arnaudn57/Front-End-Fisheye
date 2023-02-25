@@ -49,8 +49,14 @@ function openLightbox(index){
     const lightboxSource = document.createElement('source');
     lightboxSource.setAttribute('src', allMedias[index].children[0].getAttribute('src'));
 
+    //Titre de la vidéo
+    const titleCurrentMedia = document.createElement('p');
+    titleCurrentMedia.setAttribute('class', 'title-current-media');
+    titleCurrentMedia.textContent = allMedias[index].children[0].getAttribute('alt');
+    console.log(allMedias[index].children[0].getAttribute('alt'));
     lightboxVideo.appendChild(lightboxSource);
     lightboxBox.appendChild(lightboxVideo);
+    lightboxBox.appendChild(titleCurrentMedia);
 
     currentMedias = index;
   }
