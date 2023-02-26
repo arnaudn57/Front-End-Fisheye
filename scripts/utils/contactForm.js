@@ -28,7 +28,7 @@ function submitForm(event){
     //Dom Form
     let form = document.getElementsByName('contact');
     form = form[0];
-    if (validation()){
+    if (validation() === true){
       form.reset();
       closeModal();
       event.preventDefault();
@@ -41,10 +41,10 @@ function submitForm(event){
 function validateFirstName(firstNameValue){
   if (firstNameValue.length >= 2 && firstNameValue.match(/^[a-zA-Z]+$/)) {
     console.log(firstNameValue)
+    hideErrorMessage('firstname', 'message-error-first-name');
     return true;
   } else {
-    const firstNameInput = document.getElementById('firstname');
-    firstNameInput.style.border = '2px solid red';
+    showErrorMessage('firstname', 'message-error-first-name');
   }
 }
 
@@ -52,10 +52,10 @@ function validateFirstName(firstNameValue){
 function validateLastName(lastNameValue){
     if (lastNameValue.length >= 2 && lastNameValue.match(/^[a-zA-Z]+$/)) {
     console.log(lastNameValue)
+    hideErrorMessage('lastname', 'message-error-last-name');
     return true;
   } else {
-    const lastNameInput = document.getElementById('lastname');
-    lastNameInput.style.border = '2px solid red';
+    showErrorMessage('lastname', 'message-error-last-name');
   }
 }
 
@@ -63,10 +63,10 @@ function validateLastName(lastNameValue){
 function validateEmail(emailValue){
   if (emailValue.match(/^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/)) {
     console.log(emailValue)
+    hideErrorMessage('email', 'message-error-email');
     return true;
   } else {
-    const emailInput = document.getElementById('email');
-    emailInput.style.border = '2px solid red';
+    showErrorMessage('email', 'message-error-email');
   }
 }
 
@@ -74,10 +74,10 @@ function validateEmail(emailValue){
 function validateMessage(messageValue){
   if (messageValue.length > 1) {
     console.log(messageValue)
+    hideErrorMessage('message', 'message-error-message');
     return true;
   } else {
-    const messageInput = document.getElementById('message');
-    messageInput.style.border = '2px solid red';
+    showErrorMessage('message', 'message-error-message');
   }
 }
 
@@ -91,4 +91,24 @@ function validation(){
   if (validateFirstName(firstNameInput.value) && validateLastName(lastNameInput.value) && validateEmail(emailInput.value) && validateMessage(messageInput.value)) {
     return true;
   }
+  validateFirstName(firstNameInput.value);
+  validateLastName(lastNameInput.value);
+  validateEmail(emailInput.value);
+  validateMessage(messageInput.value);
+}
+
+function showErrorMessage(classInput, messageErrorClass){
+   const messageInput = document.getElementById(`${classInput}`);
+    messageInput.style.border = '2px solid #901c1c';
+
+    const message_error_message = document.getElementsByClassName(`${messageErrorClass}`)[0];
+    message_error_message.style.display = 'block';
+}
+
+function hideErrorMessage(classInput, messageErrorClass){
+  const messageInput = document.getElementById(`${classInput}`);
+    messageInput.style.border = 'none';
+
+    const message_error_message = document.getElementsByClassName(`${messageErrorClass}`)[0];
+    message_error_message.style.display = 'none';
 }
