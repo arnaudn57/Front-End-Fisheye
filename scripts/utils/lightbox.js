@@ -45,6 +45,8 @@ function openLightbox(index){
     //Si le media est une vidéo, construction de main-content VIDEO de la lightbox
     const lightboxVideo = document.createElement('video');
     lightboxVideo.setAttribute('controls', 'controls');
+    lightboxVideo.setAttribute('autoplay', 'autoplay');
+    lightboxVideo.setAttribute('loop', 'loop');
 
     const lightboxSource = document.createElement('source');
     lightboxSource.setAttribute('src', allMedias[index].children[0].getAttribute('src'));
