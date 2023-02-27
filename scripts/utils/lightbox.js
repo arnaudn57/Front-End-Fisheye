@@ -40,6 +40,7 @@ function openLightbox(index){
     lightboxBox.appendChild(titleCurrentMedia);
 
     currentMedias = index;
+
   } else {
 
     //Si le media est une vidéo, construction de main-content VIDEO de la lightbox
