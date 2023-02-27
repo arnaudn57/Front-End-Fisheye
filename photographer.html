@@ -19,7 +19,7 @@
   </header>
   <main id="main">
     <div class="photograph-header">
-      <button class="contact_button" onclick="displayModal()" aria-label="Contact Me">Contactez-moi</button>
+      <button class="contact_button" aria-label="Contact Me">Contactez-moi</button>
     </div>
 
 
@@ -51,7 +51,7 @@
           <span id="name-photographer"></span>
         </div>
 
-        <img src="assets/icons/close.svg" onclick="closeModal()" alt="Close Contact form" aria-label="Close" />
+        <img src="assets/icons/close.svg" class="closeModalContact" alt="Close Contact form" aria-label="Close" />
       </header>
       <form name="contact">
         <div>
@@ -92,12 +92,12 @@
   </div>
 
   <!-- Script -->
-  <script src="./scripts/factories/media.js"></script>
-  <script src="./scripts/utils/contactForm.js"></script>
-  <script src="./scripts/factories/profil.js"></script>
+  <script type="module" src="./scripts/factories/media.js"></script>
+  <script type="module" src="./scripts/factories/profil.js"></script>
   <script src="./scripts/utils/lightbox.js"></script>
-  <script src="./scripts/utils/likes.js"></script>
+  <script type="module" src="./scripts/utils/likes.js"></script>
   <script type="module" src="./scripts/pages/photographer.js"></script>
+  <script type="module" src="./scripts/utils/contactForm.js"></script>
 </body>
 
 </html>

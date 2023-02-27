@@ -1,26 +1,37 @@
 //Function ouverture modal
+function listenerContact(){
+  displayModal();
+  closeModal();
+}
+
 function displayModal() {
-  const modal = document.getElementById("contact_modal");
-	modal.style.display = "block";
+  const contactBtn = document.getElementsByClassName('contact_button')[0];
+  contactBtn.addEventListener('click', function(){
+    const modal = document.getElementById("contact_modal");
+    modal.style.display = "block";
 
-  //Dom modal contact
-  let modalContact = document.getElementById('Contact');
+    //Dom modal contact
+    let modalContact = document.getElementById('Contact');
 
-  //Modification du H2 modal contact
-  const actualName = document.querySelector('.info h2').innerText;
-  modalContact.innerText = ` Contactez-moi ${actualName}`;
+    //Modification du H2 modal contact
+    const actualName = document.querySelector('.info h2').innerText;
+    modalContact.innerText = ` Contactez-moi ${actualName}`;
 
 
-  //Dom form submit BTN
-  const submitButton = document.getElementsByClassName('contact_button');
-  submitButton[1].addEventListener('click', submitForm);
+    //Dom form submit BTN
+    const submitButton = document.getElementsByClassName('contact_button');
+    submitButton[1].addEventListener('click', submitForm);
+  });
 
 }
 
 //Function fermeture modal
 function closeModal() {
-  const modal = document.getElementById("contact_modal");
-  modal.style.display = "none";
+  const closeBtn = document.getElementsByClassName('closeModalContact')[0];
+  closeBtn.addEventListener('click', function(){
+    const modal = document.getElementById("contact_modal");
+    modal.style.display = "none";
+  });
 }
 
 //Function lors du submit du Form
@@ -112,3 +123,5 @@ function hideErrorMessage(classInput, messageErrorClass){
     const message_error_message = document.getElementsByClassName(`${messageErrorClass}`)[0];
     message_error_message.style.display = 'none';
 }
+
+export { listenerContact }

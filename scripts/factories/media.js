@@ -1,5 +1,7 @@
+import {decrementAllLikes, incrementAllLikes} from '../factories/profil.js';
+
 function mediaFactory(data) {
-  const { image, video, title, likes, id, date } = data;
+  const { image, video, title, likes, date } = data;
   console.log(data)
   const picture = `./assets/images/${image}`;
   const _video = `./assets/images/${video}`;
@@ -106,7 +108,6 @@ function mediaFactory(data) {
       coeurImage.setAttribute('aria-label', 'likes')
 
       coeurImage.addEventListener('click', function () {
-        // counterHitLike++;
         if (counterHitLikeImage == false) {
           numberLikes++;
           likesImage.textContent = numberLikes;
@@ -145,3 +146,5 @@ function displayMediasGallery(filteredMedias){
     mediaSection[0].appendChild(mediaCard);
   });
 }
+
+export { displayMediasGallery }

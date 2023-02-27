@@ -1,5 +1,8 @@
 import { tri } from '../utils/tri.js'
-
+import { photographerFactory } from '../factories/profil.js'
+import { displayMediasGallery } from '../factories/media.js'
+import { allLikePhotographe } from '../factories/profil.js'
+import { listenerContact } from '../utils/contactForm.js'
 //Fetch des données des photographes
 async function getPhotographers() {
   let url = './data/photographers.json'
@@ -49,7 +52,6 @@ async function displayData(photographers, media) {
   console.log(filteredMedias)
 
   //Affichage des medias par defaut (populaire)
-  const mediaSection = document.getElementsByClassName('gallery');
   displayMediasGallery(filteredMedias);
 
   //Function de mangement du tri
@@ -71,6 +73,6 @@ async function init() {
   // Récupère les datas des photographes
   const { photographers, media } = await getPhotographers();
   displayData(photographers, media);
-
+  listenerContact();
 }
 init();

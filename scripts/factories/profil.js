@@ -1,5 +1,5 @@
 function photographerFactory(data) {
-  const { name, portrait, city, country, tagline, price, id } = data
+  const { name, portrait, city, country, tagline, price } = data
   // console.log(data)
   const picture = `./assets/photographers/${portrait}`
 
@@ -84,3 +84,5 @@ function decrementAllLikes() {
   // likesDom.innerHTML = " ";
   likesDom.innerHTML = (parseInt(likesDom.innerText) - 1) + '<span class="fa-solid fa-heart"></span>';
 }
+
+export { photographerFactory, allLikePhotographe, incrementAllLikes, decrementAllLikes }
