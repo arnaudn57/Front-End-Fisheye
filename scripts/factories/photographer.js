@@ -13,6 +13,7 @@ function photographerFactory(data) {
         const link = document.createElement('a');
         link.href = '../../photographer.html?id=' + id;
         link.setAttribute("aria-label", name);
+        link.setAttribute('tabindex', '3')
         link.setAttribute("role", "link");
         link.setAttribute("title", `Visiter la page de profil ${name} ?`)
         // link.classList.add('photographer-card-link');

@@ -10,6 +10,7 @@ function photographerFactory(data) {
     const img = document.createElement('img');
     img.setAttribute('src', picture);
     img.setAttribute('alt', name);
+    img.setAttribute('tabindex', '5');
     div.appendChild(img);
 
     return div;
@@ -24,12 +25,16 @@ function photographerFactory(data) {
     img.setAttribute('alt', name);
 
     const h2 = document.createElement('h2');
+    h2.setAttribute('tabindex', '2');
     h2.textContent = name;
 
+
     const h3 = document.createElement('h3');
+    h3.setAttribute('tabindex', '3');
     h3.textContent = city + ',' + ' ' + country;
 
     const tag = document.createElement('h4');
+    tag.setAttribute('tabindex', '3');
     tag.textContent = tagline;
 
     div.appendChild(h2);
