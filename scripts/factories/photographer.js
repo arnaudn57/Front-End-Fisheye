@@ -6,12 +6,15 @@ function photographerFactory(data) {
 
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
+        article.setAttribute("role", "region");
         // article.classList.add('photographer-card');
 
         // Ajout de lien
         const link = document.createElement('a');
         link.href = '../../photographer.html?id=' + id;
         link.setAttribute("aria-label", name);
+        link.setAttribute("role", "link");
+        link.setAttribute("title", `Visiter la page de profil ${name} ?`)
         // link.classList.add('photographer-card-link');
 
         // Ajout de l'image

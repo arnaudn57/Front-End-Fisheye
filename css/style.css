@@ -39,6 +39,10 @@ h1 {
     flex-direction: column;
 }
 
+*:focus {
+  background-color: red;
+}
+
 .photographer_section article a {
   text-decoration: none;
 }

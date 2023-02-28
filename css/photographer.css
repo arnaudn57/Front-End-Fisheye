@@ -518,13 +518,15 @@ form textarea {
 
 .lightbox{
   display: none;
-  position: absolute;
+  position: fixed;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
-  top: 10%;
+  top: 0;
+  background-color: rgba(196, 196, 196, 0.8);
+  height: 100%;
 }
 
 .lightbox-content {
@@ -532,6 +534,7 @@ form textarea {
   justify-content: center;
   align-items: center;
   gap: 30px;
+  margin-top: 10%;
 }
 
 .main-media img {

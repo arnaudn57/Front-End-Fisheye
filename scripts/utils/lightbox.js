@@ -5,10 +5,10 @@ function openLightbox(index){
   lightbox[0].style.display = 'flex';
 
   //Masque le main et le header
-  const main = document.getElementById('main');
-  main.style.display = 'none';
-  const header =  document.getElementsByTagName('header')[0];
-  header.style.display = 'none';
+  // const main = document.getElementById('main');
+  // main.style.display = 'none';
+  // const header =  document.getElementsByTagName('header')[0];
+  // header.style.display = 'none';
 
   //Récupère tous les médias dans l'ordre du DOM
   const allMedias = Array.from(document.getElementsByClassName('media'));
