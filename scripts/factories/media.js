@@ -26,6 +26,7 @@ function mediaFactory(data) {
       // video.setAttribute('controls', 'controls');
       video.setAttribute('class', 'media');
       video.setAttribute('onclick', "openLightbox("+ mediaIndex +")");
+      video.setAttribute('alt', titre);
 
       //Création de la balise source
       const source = document.createElement('source');
