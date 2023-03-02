@@ -7,15 +7,16 @@ function photographerFactory(data) {
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         article.setAttribute("role", "region");
+        article.setAttribute('tabindex', '3');
         // article.classList.add('photographer-card');
 
         // Ajout de lien
         const link = document.createElement('a');
         link.href = '../../photographer.html?id=' + id;
         link.setAttribute("aria-label", name);
-        link.setAttribute('tabindex', '3')
         link.setAttribute("role", "link");
         link.setAttribute("title", `Visiter la page de profil ${name} ?`)
+        // link.setAttribute('tabindex', '0');
         // link.classList.add('photographer-card-link');
 
         // Ajout de l'image
@@ -46,14 +47,11 @@ function photographerFactory(data) {
         const priceElement = document.createElement( 'div' );
         priceElement.textContent = `${price}€/jour`;
         priceElement.setAttribute("aria-label", "Prix par jour");
-        // priceElement.classList.add('photographer-card-price');
 
         //Constructeur fiche photographe
         article.appendChild(link);
         link.appendChild(img);
         link.appendChild(h2);
-        // article.appendChild(img);
-        // article.appendChild(h2);
         article.appendChild(cityElement);
         article.appendChild(taglineElement);
         article.appendChild(priceElement);

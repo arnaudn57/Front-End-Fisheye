@@ -27,6 +27,7 @@ function mediaFactory(data) {
       video.setAttribute('class', 'media');
       video.setAttribute('onclick', "openLightbox("+ mediaIndex +")");
       video.setAttribute('alt', titre);
+      video.setAttribute('tabindex', '9');
 
       //Création de la balise source
       const source = document.createElement('source');
@@ -39,6 +40,7 @@ function mediaFactory(data) {
       const titreVideo = document.createElement('p');
       titreVideo.setAttribute('class', 'titre');
       titreVideo.textContent = titre;
+      titreVideo.setAttribute('tabindex', '9');
       //Ajout de la balise source dans la balise video
       video.appendChild(source);
 
@@ -54,6 +56,7 @@ function mediaFactory(data) {
       coeurVideo.setAttribute('id', 'coeur');
       coeurVideo.setAttribute('class', 'fa-solid fa-heart');
       coeurVideo.setAttribute('aria-label', 'likes')
+      coeurVideo.setAttribute('tabindex', '9');
       coeurVideo.addEventListener('click', function () {
 
       if (counterHitLikeVideo == false) {
@@ -87,6 +90,7 @@ function mediaFactory(data) {
       img.setAttribute('alt', titre);
       img.setAttribute('class', 'media');
       img.setAttribute('onclick', "openLightbox(" + mediaIndex +")");
+      img.setAttribute('tabindex', '9');
 
       const infoImage = document.createElement('span');
       infoImage.setAttribute('class', 'info');
@@ -94,6 +98,7 @@ function mediaFactory(data) {
       const titreImage = document.createElement('p');
       titreImage.setAttribute('class', 'titre');
       titreImage.textContent = titre;
+      titreImage.setAttribute('tabindex', '9');
 
       //partie Like
       const likeBlock = document.createElement('like');
@@ -107,6 +112,7 @@ function mediaFactory(data) {
       coeurImage.setAttribute('id', 'coeur');
       coeurImage.setAttribute('class', 'fa-solid fa-heart');
       coeurImage.setAttribute('aria-label', 'likes')
+      coeurImage.setAttribute('tabindex', '9');
 
       coeurImage.addEventListener('click', function () {
         if (counterHitLikeImage == false) {
