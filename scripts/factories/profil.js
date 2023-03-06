@@ -9,7 +9,7 @@ function photographerFactory(data) {
 
     const img = document.createElement('img');
     img.setAttribute('src', picture);
-    img.setAttribute('alt', name);
+    img.setAttribute('alt', `Photo de profil du compte de: ${name}`);
     img.setAttribute('tabindex', '5');
     div.appendChild(img);
 
@@ -49,6 +49,7 @@ function photographerFactory(data) {
     div.setAttribute('class', 'prix');
 
     const prix = document.createElement('prix');
+    prix.setAttribute('aria-label', `Le tarif journalier est de ${price}€`)
     prix.textContent = price + '€' + '/' + 'jour';
 
     div.appendChild(prix);
@@ -71,6 +72,7 @@ function allLikePhotographe(){
     likesDivDom.setAttribute('class', 'likes');
 
     let likesDom = document.createElement('likes');
+    likesDom.setAttribute('aria-label', `Le photographe accumule ${photographerAllLike} likes`)
     likesDom.innerHTML = photographerAllLike + '<span class="fa-solid fa-heart"></span>';
 
     const footerSection = document.getElementsByClassName('infos');

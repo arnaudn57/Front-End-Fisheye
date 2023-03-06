@@ -5,34 +5,34 @@
   <link href="css/style.css" rel="stylesheet" type="text/css" />
   <meta charset="utf-8">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <script src="https://kit.fontawesome.com/48b30f5d9d.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/e6bc78d06f.js" crossorigin="anonymous"></script>
   <title>Fisheye - photographe </title>
 </head>
 
 <body>
   <header>
-    <a href="index.html" target="_self" tabindex="1">
+    <a href="./index.html" target="_self" title="Lien vers la page d'accueil" tabindex="1">
       <img src="assets/images/logo.png" class="logo" id="logo" alt="Fisheye Home Page" />
     </a>
 
   </header>
-  <main id="main">
-    <div class="photograph-header">
-      <button class="contact_button" aria-label="Contact Me" tabindex="4  ">Contactez-moi</button>
+  <main id="main" role="main" aria-label="Contenu de la page du photographe">
+    <div class="photograph-header" role="region">
+      <button type="button" class="contact_button" aria-label="Bouton pour ouvrir la boîte modale pour contacter le photographe" tabindex="4">Contactez-moi</button>
     </div>
 
 
     <div class="tri" aria-label="Tri des medias">
       <label for="tri-select" tabindex="7">Trier par :</label>
-      <select name="tri" id="tri-select" tabindex="8" aria-label="Order by" aria-labelledby="8">
-        <option value="populaire">Popularité</option>
+      <select name="tri" id="tri-select" tabindex="8" aria-label="Order by" aria-level="Bouton pour ouvrir le menu déroulant">
+        <option value="populaire">Popularité <i class="fa-solid fa-chevron-down dropdown-menu__icon"></i></option>
         <option value="date">Date</option>
         <option value="titre">Titre</option>
       </select>
     </div>
 
-    <section class="gallery"></section>
+    <section class="gallery" aria-label="Publications faites par le photographe"></section>
 
 
     <!-- footer du main -->
@@ -53,10 +53,12 @@
 
         <img src="assets/icons/close.svg" class="closeModalContact" alt="Close Contact form" aria-label="Close" />
       </header>
-      <form name="contact">
+
+      <form name="contact" role="form">
         <div>
           <label for="firstname" id="First-name">Prénom</label>
-          <input type="text" id="firstname" name="firstname" aria-labelledby="First-name" aria-required="true" />
+          <input type="text" id="firstname" name="firstname" aria-invalid="false" aria-labelledby="First-name"
+            aria-required="true" />
           <p class="message-error message-error-first-name">Veuillez mettre au moins 2 caractères alphabétiques</p>
         </div>
 
@@ -77,17 +79,30 @@
           <textarea id="message" name="message" rows="7" aria-labelledby="Your-message" aria-required="true"></textarea>
           <p class="message-error message-error-message">Veuillez écrire votre message</p>
         </div>
-        <button class="contact_button" type="submit" value="Send">Envoyer</button>
+        <button class="contact_button" type="submit" value="Send"
+          aria-label="Bouton pour envoyer le message">Envoyer</button>
       </form>
     </div>
   </div>
 
-  <div class="lightbox">
+  <div class="lightbox" role="dialog" aria-label="Vue rapprochée de la photographie">
     <div class="lightbox-content">
-      <div class="prev"><img src="../assets/icons/VectorLeft.png" onclick="previousMedia()"></div>
+      <div class="prev">
+        <button type="button" onclick="previousMedia()" aria-label="Bouton pour passer à l'image précédente">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+      </div>
       <div class="main-media"></div>
-      <div class="next"><img src="../assets/icons/VectorRight.png" class="next" onclick="nextMedia()"></div>
-      <div class="close"><img id="btn-close-lightbox" src="../assets/icons/close.svg" onclick="closeLightbox();" />
+      <div class="next">
+        <button type="button" onclick="nextMedia()" aria-label="Bouton pour passer à l'image suivante">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="close">
+        <button id="btn-close-lightbox" type="button" onclick="closeLightbox()"
+          aria-label="Bouton pour fermer la boîte de dialogue">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
       </div>
     </div>
   </div>

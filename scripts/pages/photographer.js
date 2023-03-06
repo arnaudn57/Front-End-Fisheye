@@ -3,6 +3,7 @@ import { photographerFactory } from '../factories/profil.js'
 import { displayMediasGallery } from '../factories/media.js'
 import { allLikePhotographe } from '../factories/profil.js'
 import { listenerContact } from '../utils/contactForm.js'
+
 //Fetch des données des photographes
 async function getPhotographers() {
   let url = './data/photographers.json'
@@ -15,16 +16,16 @@ async function getPhotographers() {
 }
 
 //Récupération de l'id du photographe dans l'url
-const queryString_url_id = window.location.search
+const queryString_url_id = window.location.search;
 //Extraction de l'id
-const urlsearchParams = new URLSearchParams(queryString_url_id)
-const _id = urlsearchParams.get('id')
+const urlsearchParams = new URLSearchParams(queryString_url_id);
+const _id = urlsearchParams.get('id');
 
 async function displayData(photographers, media) {
 
   //Photgrapher Profile
-  const filteredPhotographers = photographers.filter((obj) => obj.id == _id)
-  const photographersSection = document.querySelector('.photograph-header')
+  const filteredPhotographers = photographers.filter((obj) => obj.id == _id);
+  const photographersSection = document.querySelector('.photograph-header');
 
 
   filteredPhotographers.forEach((photographer) => {
@@ -58,11 +59,9 @@ async function displayData(photographers, media) {
   function manageSort(event){
     const pl = document.querySelectorAll('.photo');
     //Toutes les photos sont supprimées
-    pl.forEach((p) => p.remove())
-
-    //Import function tri from utils/tri.js
+    pl.forEach((p) => p.remove());
+    //function tri from utils/tri.js
     tri(event, filteredMedias);
-
     //Affichage des medias triés
     displayMediasGallery(filteredMedias);
   }

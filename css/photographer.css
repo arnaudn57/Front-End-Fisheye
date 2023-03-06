@@ -148,6 +148,12 @@ form input {
   background-color: #901C1C;
   color: white;
   outline: none;
+  appearance: none;
+  font-size: 16px;
+  text-align: left;
+  padding: 14px;
+  border-radius: 7px;
+  border: none;
 }
 
 

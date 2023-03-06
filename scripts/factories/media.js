@@ -6,10 +6,12 @@ function mediaFactory(data) {
   const picture = `./assets/images/${image}`;
   const _video = `./assets/images/${video}`;
   const titre = title;
+  const dateMedia = new Date(date).getFullYear();
   const coeur = `./assets/images/${likes}`;
 
   function getMediaCardDOM(mediaIndex) {
     const lien = document.createElement('a');
+    lien.setAttribute('role', 'link');
 
     //Création de la div
     const article = document.createElement('article');
@@ -26,7 +28,7 @@ function mediaFactory(data) {
       // video.setAttribute('controls', 'controls');
       video.setAttribute('class', 'media');
       video.setAttribute('onclick', "openLightbox("+ mediaIndex +")");
-      video.setAttribute('alt', titre);
+      video.setAttribute('alt', `'${titre}' fait en ${dateMedia}`);
       video.setAttribute('tabindex', '9');
 
       //Création de la balise source
@@ -72,6 +74,8 @@ function mediaFactory(data) {
         }
       });
 
+      lien.setAttribute('aria-label', `Image nommée ${titreVideo.textContent}`);
+
       //Ajout de la balise video dans l'article
       article.appendChild(lien);
       lien.appendChild(video);
@@ -85,9 +89,8 @@ function mediaFactory(data) {
 
       //Création de la balise img
       const img = document.createElement('img');
-      // img.setAttribute('class', 'photo');
       img.setAttribute('src', picture);
-      img.setAttribute('alt', titre);
+      img.setAttribute('alt', `'${titre}' fait en ${dateMedia}`);
       img.setAttribute('class', 'media');
       img.setAttribute('onclick', "openLightbox(" + mediaIndex +")");
       img.setAttribute('tabindex', '9');
@@ -128,7 +131,7 @@ function mediaFactory(data) {
         }
       });
 
-      // console.log(counterLightbox);
+      lien.setAttribute('aria-label', `Image nommée ${titreImage.textContent}`);
       //Ajout de la balise img dans l'article
       article.appendChild(lien);
       lien.appendChild(img);

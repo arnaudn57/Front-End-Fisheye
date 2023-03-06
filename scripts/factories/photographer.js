@@ -22,7 +22,7 @@ function photographerFactory(data) {
         // Ajout de l'image
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
-        img.setAttribute("alt", name);
+        img.setAttribute("alt", `Photo de profil de: ${name}`);
         // img.classList.add('photographer-card-avatar');
 
         //Ajout du nom
