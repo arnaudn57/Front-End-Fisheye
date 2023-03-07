@@ -30,6 +30,7 @@ function mediaFactory(data) {
       video.setAttribute('onclick', "openLightbox("+ mediaIndex +")");
       video.setAttribute('alt', `'${titre}' fait en ${dateMedia}`);
       video.setAttribute('tabindex', '9');
+      video.setAttribute('onkeypress', "openLightbox("+ mediaIndex +")");
 
       //Création de la balise source
       const source = document.createElement('source');
@@ -74,6 +75,21 @@ function mediaFactory(data) {
         }
       });
 
+      coeurVideo.addEventListener('keydown', function () {
+
+      if (counterHitLikeVideo == false) {
+          numberLikes++;
+          likesVideo.textContent = numberLikes;
+          counterHitLikeVideo = true;
+          incrementAllLikes();
+        } else if (counterHitLikeVideo == true) {
+          numberLikes--;
+          likesVideo.textContent = numberLikes;
+          counterHitLikeVideo = false;
+          decrementAllLikes();
+        }
+      });
+
       lien.setAttribute('aria-label', `Image nommée ${titreVideo.textContent}`);
 
       //Ajout de la balise video dans l'article
@@ -94,6 +110,7 @@ function mediaFactory(data) {
       img.setAttribute('class', 'media');
       img.setAttribute('onclick', "openLightbox(" + mediaIndex +")");
       img.setAttribute('tabindex', '9');
+      img.setAttribute('onkeypress', "openLightbox("+ mediaIndex +")");
 
       const infoImage = document.createElement('span');
       infoImage.setAttribute('class', 'info');
@@ -118,6 +135,20 @@ function mediaFactory(data) {
       coeurImage.setAttribute('tabindex', '9');
 
       coeurImage.addEventListener('click', function () {
+        if (counterHitLikeImage == false) {
+          numberLikes++;
+          likesImage.textContent = numberLikes;
+          counterHitLikeImage = true;
+          incrementAllLikes();
+        } else if (counterHitLikeImage == true) {
+          numberLikes--;
+          likesImage.textContent = numberLikes;
+          counterHitLikeImage = false;
+          decrementAllLikes();
+        }
+      });
+
+      coeurImage.addEventListener('keydown', function () {
         if (counterHitLikeImage == false) {
           numberLikes++;
           likesImage.textContent = numberLikes;

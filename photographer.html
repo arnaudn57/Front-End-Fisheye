@@ -43,7 +43,7 @@
   </main>
 
   <!-- Contact -->
-  <div id="contact_modal" aria-hidden="true">
+  <div id="contact_modal" aria-hidden="true" aria-modal="true">
     <div class="modal" aria-labelledby="Contact me" aria-labelledby="2">
       <header>
         <div class="header-title">
@@ -51,7 +51,7 @@
           <span id="name-photographer"></span>
         </div>
 
-        <img src="assets/icons/close.svg" class="closeModalContact" alt="Close Contact form" aria-label="Close" />
+        <img src="assets/icons/close.svg" class="closeModalContact" alt="Close Contact form" aria-label="Close" onkeypress="closeModal()"/>
       </header>
 
       <form name="contact" role="form">
