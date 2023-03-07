@@ -12,14 +12,14 @@
 <body>
   <!-- Header -->
   <header role="banner" aria-label="En tête de la page">
-    <a href="./index.html" title="Lien vers la page d'accueil">
-      <img src="assets/images/logo.png" class="logo" alt="FishEye Home Page" tabindex="0"/>
+    <a href="./index.html" title="Lien vers la page d'accueil" tabindex="-1">
+      <img src="assets/images/logo.png" class="logo" alt="FishEye Home Page" tabindex="1"/>
     </a>
-    <h1 tabindex="0">Nos photographes</h1>
+    <h1 tabindex="2">Nos photographes</h1>
   </header>
 
   <!-- Main -->
-  <main id="main" role="main" aria-label="Contenu de la page principale de la page d'accueil" tabindex="">
+  <main id="main" role="main" aria-label="Contenu de la page principale de la page d'accueil" tabindex="-1">
     <div class="photographer_section"></div>
   </main>
   <script type="module" src="scripts/factories/photographer.js"></script>

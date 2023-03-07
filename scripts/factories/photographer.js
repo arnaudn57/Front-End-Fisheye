@@ -7,7 +7,7 @@ function photographerFactory(data) {
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         article.setAttribute("role", "region");
-        article.setAttribute('tabindex', '0');
+        article.setAttribute('tabindex', '-1');
         // article.classList.add('photographer-card');
 
         // Ajout de lien
@@ -31,6 +31,9 @@ function photographerFactory(data) {
         h2.setAttribute("aria-label", "Nom du photographe");
         // h2.classList.add('photographer-card-name');
 
+        const infosPhotographer = document.createElement('div');
+        infosPhotographer.setAttribute('tabindex', '0');
+
         //Ajout de la city
         const cityElement = document.createElement( 'h3' );
         cityElement.textContent = `${city}, ${country}`;
@@ -52,9 +55,10 @@ function photographerFactory(data) {
         article.appendChild(link);
         link.appendChild(img);
         link.appendChild(h2);
-        article.appendChild(cityElement);
-        article.appendChild(taglineElement);
-        article.appendChild(priceElement);
+        article.appendChild(infosPhotographer);
+        infosPhotographer.appendChild(cityElement);
+        infosPhotographer.appendChild(taglineElement);
+        infosPhotographer.appendChild(priceElement);
 
         return (article);
     }
