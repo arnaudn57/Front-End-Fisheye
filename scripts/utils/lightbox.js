@@ -5,10 +5,10 @@ function openLightbox(index){
   lightbox[0].style.display = 'flex';
 
   //Masque le main et le header
-  // const main = document.getElementById('main');
-  // main.style.display = 'none';
-  // const header =  document.getElementsByTagName('header')[0];
-  // header.style.display = 'none';
+  const main = document.getElementById('main');
+  main.style.display = 'none';
+  const header =  document.getElementsByTagName('header')[0];
+  header.style.display = 'none';
 
   //Récupère tous les médias dans l'ordre du DOM
   const allMedias = Array.from(document.getElementsByClassName('media'));
@@ -31,9 +31,11 @@ function openLightbox(index){
     //Si le media est une image, construction de main-content IMAGE de la lightbox
     const lightboxImage = document.createElement('img');
     lightboxImage.setAttribute('src', allMedias[index].getAttribute('src'));
+    lightboxImage.setAttribute('tabindex', '2');
 
     const titleCurrentMedia = document.createElement('p');
     titleCurrentMedia.setAttribute('class', 'title-current-media');
+    titleCurrentMedia.setAttribute('tabindex', '3');
     titleCurrentMedia.textContent = allMedias[index].getAttribute('alt');
 
     lightboxBox.appendChild(lightboxImage);
@@ -48,6 +50,7 @@ function openLightbox(index){
     lightboxVideo.setAttribute('controls', 'controls');
     lightboxVideo.setAttribute('autoplay', 'autoplay');
     lightboxVideo.setAttribute('loop', 'loop');
+    lightboxVideo.setAttribute('tabindex', '2');
 
     const lightboxSource = document.createElement('source');
     lightboxSource.setAttribute('src', allMedias[index].children[0].getAttribute('src'));
@@ -55,6 +58,7 @@ function openLightbox(index){
     //Titre de la vidéo
     const titleCurrentMedia = document.createElement('p');
     titleCurrentMedia.setAttribute('class', 'title-current-media');
+    titleCurrentMedia.setAttribute('tabindex', '3');
     titleCurrentMedia.textContent = allMedias[index].children[0].getAttribute('alt');
     console.log(allMedias[index].children[0].getAttribute('alt'));
     lightboxVideo.appendChild(lightboxSource);

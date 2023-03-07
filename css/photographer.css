@@ -391,6 +391,15 @@ form textarea {
 
 }
 
+.lightbox-content button {
+  border: none;
+  background: transparent;
+}
+
+.lightbox-content button:focus {
+  outline: none;
+  border: 5px solid #d3573c;
+}
 
 .lightbox-modal .titre {
   color: #901C1C;

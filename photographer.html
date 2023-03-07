@@ -85,23 +85,23 @@
     </div>
   </div>
 
-  <div class="lightbox" role="dialog" aria-label="Vue rapprochée de la photographie">
-    <div class="lightbox-content">
+  <div class="lightbox" role="dialog" aria-label="Vue rapprochée de la photographie" tabindex="-1" >
+    <div class="lightbox-content" tabindex="1">
       <div class="prev">
-        <button type="button" onclick="previousMedia()" aria-label="Bouton pour passer à l'image précédente">
-          <i class="fa-solid fa-chevron-left"></i>
+        <button type="button" onclick="previousMedia()" aria-label="Bouton pour passer à l'image précédente" tabindex="4">
+          <img src="./assets/icons/VectorLeft.png">
         </button>
       </div>
       <div class="main-media"></div>
       <div class="next">
-        <button type="button" onclick="nextMedia()" aria-label="Bouton pour passer à l'image suivante">
-          <i class="fa-solid fa-chevron-right"></i>
+        <button type="button" onclick="nextMedia()" aria-label="Bouton pour passer à l'image suivante" tabindex="5">
+          <img src="./assets/icons/VectorRight.png">
         </button>
       </div>
       <div class="close">
-        <button id="btn-close-lightbox" type="button" onclick="closeLightbox()"
-          aria-label="Bouton pour fermer la boîte de dialogue">
-          <i class="fa-solid fa-xmark"></i>
+        <button type="button" onclick="closeLightbox()"
+          aria-label="Bouton pour fermer la boîte de dialogue" tabindex="6">
+          <img id="btn-close-lightbox" src="./assets/icons/close.svg">
         </button>
       </div>
     </div>

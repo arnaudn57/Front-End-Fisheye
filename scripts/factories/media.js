@@ -27,8 +27,8 @@ function mediaFactory(data) {
       const video = document.createElement('video');
       // video.setAttribute('controls', 'controls');
       video.setAttribute('class', 'media');
-      video.setAttribute('onclick', "openLightbox("+ mediaIndex +")");
       video.setAttribute('alt', `'${titre}' fait en ${dateMedia}`);
+      video.setAttribute('onclick', "openLightbox("+ mediaIndex +")");
       video.setAttribute('tabindex', '9');
       video.setAttribute('onkeypress', "openLightbox("+ mediaIndex +")");
 
