@@ -7,7 +7,7 @@ function photographerFactory(data) {
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         article.setAttribute("role", "region");
-        article.setAttribute('tabindex', '3');
+        article.setAttribute('tabindex', '0');
         // article.classList.add('photographer-card');
 
         // Ajout de lien
