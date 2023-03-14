@@ -9,8 +9,9 @@ function photographerFactory(data) {
 
     const img = document.createElement('img');
     img.setAttribute('src', picture);
-    img.setAttribute('alt', `Photo de profil du compte de: ${name}`);
+    img.setAttribute('alt', " ");
     img.setAttribute('tabindex', '5');
+    img.setAttribute('aria-label', name);
     div.appendChild(img);
 
     return div;

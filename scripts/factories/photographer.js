@@ -22,13 +22,13 @@ function photographerFactory(data) {
         // Ajout de l'image
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
-        img.setAttribute("alt", `Photo de profil de: ${name}`);
+        // img.setAttribute("alt", `Photo de profil de: ${name}`);
         // img.classList.add('photographer-card-avatar');
 
         //Ajout du nom
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
-        h2.setAttribute("aria-label", "Nom du photographe");
+        // h2.setAttribute("aria-label", "Nom du photographe");
         // h2.classList.add('photographer-card-name');
 
         const infosPhotographer = document.createElement('div');

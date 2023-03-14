@@ -12,7 +12,7 @@ function openLightbox(index){
 
   //Récupère tous les médias dans l'ordre du DOM
   const allMedias = Array.from(document.getElementsByClassName('media'));
-
+  console.log(allMedias[index]);
   //Retour au premier media si le dernier est atteint
   if (index > allMedias.length - 1){
     index = 0;
@@ -32,6 +32,7 @@ function openLightbox(index){
     const lightboxImage = document.createElement('img');
     lightboxImage.setAttribute('src', allMedias[index].getAttribute('src'));
     lightboxImage.setAttribute('tabindex', '2');
+    lightboxImage.setAttribute('aria-label', allMedias[index].getAttribute('alt').match(/'([^']+)'/)[1]);
 
     const titleCurrentMedia = document.createElement('p');
     titleCurrentMedia.setAttribute('class', 'title-current-media');

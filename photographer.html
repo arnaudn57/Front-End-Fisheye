@@ -19,7 +19,7 @@
   </header>
   <main id="main" role="main" aria-label="Contenu de la page du photographe">
     <div class="photograph-header" role="region">
-      <button type="button" class="contact_button" aria-label="Bouton pour ouvrir la boîte modale pour contacter le photographe" tabindex="4">Contactez-moi</button>
+      <button type="button" class="contact_button" aria-label="Contact Me" tabindex="4">Contactez-moi</button>
     </div>
 
 
@@ -43,64 +43,64 @@
   </main>
 
   <!-- Contact -->
-  <div id="contact_modal" aria-hidden="true" aria-modal="true">
-    <div class="modal" aria-labelledby="Contact me" aria-labelledby="2">
+  <div id="contact_modal" aria-hidden="true" aria-modal="true" tabindex="1">
+    <div class="modal" aria-labelledby="2">
       <header>
-        <div class="header-title">
+        <div class="header-title" tabindex="2">
           <h2 id="Contact">Contactez-moi</h2>
           <span id="name-photographer"></span>
         </div>
 
-        <img src="assets/icons/close.svg" class="closeModalContact" alt="Close Contact form" aria-label="Close" onkeypress="closeModal()"/>
+        <img src="assets/icons/close.svg" class="closeModalContact" aria-label="Close Contact form" onkeypress="closeModal()" tabindex="12"/>
       </header>
 
       <form name="contact" role="form">
         <div>
-          <label for="firstname" id="First-name">Prénom</label>
-          <input type="text" id="firstname" name="firstname" aria-invalid="false" aria-labelledby="First-name"
-            aria-required="true" />
+          <label for="firstname" id="First-name" tabindex="3">Prénom</label>
+          <input type="text" id="firstname" name="firstname" aria-invalid="false" aria-label="First name" aria-labelledby="3"
+            aria-required="true" tabindex="4"/>
           <p class="message-error message-error-first-name">Veuillez mettre au moins 2 caractères alphabétiques</p>
         </div>
 
         <div>
-          <label for="lastname" id="Last-name">Nom</label>
-          <input type="text" id="lastname" name="lastname" aria-labelledby="Last-name" aria-required="true" />
+          <label for="lastname" id="Last-name" taindex="5">Nom</label>
+          <input type="text" id="lastname" name="lastname" aria-label="Last name" aria-labelledby="5" aria-required="true" tabindex="6"/>
           <p class="message-error message-error-last-name">Veuillez mettre au moins 2 caractères alphabétiques</p>
         </div>
 
         <div>
-          <label for="email" id="E-mail">Email</label>
-          <input type="email" id="email" name="email" aria-labelledby="E-mail" aria-required="true" />
+          <label for="email" id="E-mail" tabindex="7">Email</label>
+          <input type="email" id="email" name="email" aria-label="Email" aria-labelledby="7" aria-required="true" tabindex="8"/>
           <p class="message-error message-error-email">Veuillez renseigner un mail</p>
         </div>
 
         <div>
-          <label for="message" id="Your-message"> Votre message </label>
-          <textarea id="message" name="message" rows="7" aria-labelledby="Your-message" aria-required="true"></textarea>
+          <label for="message" id="Your-message" tabindex="9"> Votre message </label>
+          <textarea id="message" name="message" rows="7" aria-label="Your message" aria-labelledby="9" aria-required="true" tabindex="10"></textarea>
           <p class="message-error message-error-message">Veuillez écrire votre message</p>
         </div>
         <button class="contact_button" type="submit" value="Send"
-          aria-label="Bouton pour envoyer le message">Envoyer</button>
+          aria-label="Send" tabindex="11">Envoyer</button>
       </form>
     </div>
   </div>
 
-  <div class="lightbox" role="dialog" aria-label="Vue rapprochée de la photographie" tabindex="-1" >
+  <div class="lightbox" role="dialog" aria-label="image closeup View" tabindex="-1" >
     <div class="lightbox-content" tabindex="1">
       <div class="prev">
-        <button type="button" onclick="previousMedia()" aria-label="Bouton pour passer à l'image précédente" tabindex="4">
+        <button type="button" onclick="previousMedia()" aria-label="Previous image" tabindex="4">
           <img src="./assets/icons/VectorLeft.png">
         </button>
       </div>
       <div class="main-media"></div>
       <div class="next">
-        <button type="button" onclick="nextMedia()" aria-label="Bouton pour passer à l'image suivante" tabindex="5">
+        <button type="button" onclick="nextMedia()" aria-label="Next image" tabindex="5">
           <img src="./assets/icons/VectorRight.png">
         </button>
       </div>
       <div class="close">
         <button type="button" onclick="closeLightbox()"
-          aria-label="Bouton pour fermer la boîte de dialogue" tabindex="6">
+          aria-label="Close dialog" tabindex="6">
           <img id="btn-close-lightbox" src="./assets/icons/close.svg">
         </button>
       </div>

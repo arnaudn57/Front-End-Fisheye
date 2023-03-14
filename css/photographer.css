@@ -226,6 +226,7 @@ button:focus {
   font-size: 64px;
   font-weight: normal;
   margin: 0;
+  text-align: left;
 }
 
 .modal header .header-title span {
