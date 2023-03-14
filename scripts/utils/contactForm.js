@@ -5,6 +5,7 @@ function listenerContact(){
 }
 
 function displayModal() {
+
   const contactBtn = document.getElementsByClassName('contact_button')[0];
   contactBtn.addEventListener('click', function(){
     const modal = document.getElementById("contact_modal");

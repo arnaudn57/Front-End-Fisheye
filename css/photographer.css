@@ -535,3 +535,11 @@ likes {
 .errors {
   border: 2px solid red;
 }
+
+#tri-select {
+  background-image: url(../assets/icons/VectorTop.png);
+  background-repeat: no-repeat;
+  background-position-x: 90%;
+  background-position-y: center;
+  padding-right: 33px;
+}
