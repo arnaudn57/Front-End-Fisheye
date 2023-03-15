@@ -486,7 +486,7 @@ form textarea {
   justify-content: center;
   align-items: center;
   gap: 30px;
-  margin-top: 10%;
+  /* margin-top: 10%; */
 }
 
 .main-media img {
@@ -542,4 +542,15 @@ likes {
   background-position-x: 90%;
   background-position-y: center;
   padding-right: 33px;
+}
+
+select option {
+  background-color: red;
+  margin: 40px;
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+.options {
+  background-color: red;
 }

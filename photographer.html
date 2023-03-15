@@ -26,7 +26,7 @@
     <div class="tri" aria-label="Tri des medias">
       <label for="tri-select" tabindex="7">Trier par :</label>
       <select name="tri" id="tri-select" tabindex="8" aria-label="Order by" aria-level="Bouton pour ouvrir le menu déroulant">
-        <option value="populaire">Popularité <i class="fa-solid fa-chevron-down dropdown-menu__icon"></i></option>
+        <option value="populaire" class="options">Popularité</option>
         <option value="date">Date</option>
         <option value="titre">Titre</option>
       </select>
@@ -51,7 +51,7 @@
           <span id="name-photographer"></span>
         </div>
 
-        <img src="assets/icons/close.svg" class="closeModalContact" aria-label="Close Contact form" onkeypress="closeModal()" tabindex="12"/>
+        <img src="assets/icons/close.svg" alt="Vector Close Modal" class="closeModalContact" aria-label="Close Contact form" onkeypress="closeModal()" tabindex="12"/>
       </header>
 
       <form name="contact" role="form">
@@ -89,19 +89,19 @@
     <div class="lightbox-content" tabindex="1">
       <div class="prev">
         <button type="button" onclick="previousMedia()" aria-label="Previous image" tabindex="4">
-          <img src="./assets/icons/VectorLeft.png">
+          <img src="./assets/icons/VectorLeft.png" alt="Vector Previous Media">
         </button>
       </div>
       <div class="main-media"></div>
       <div class="next">
         <button type="button" onclick="nextMedia()" aria-label="Next image" tabindex="5">
-          <img src="./assets/icons/VectorRight.png">
+          <img src="./assets/icons/VectorRight.png" alt="Vector Next Media">
         </button>
       </div>
       <div class="close">
         <button type="button" onclick="closeLightbox()"
           aria-label="Close dialog" tabindex="6">
-          <img id="btn-close-lightbox" src="./assets/icons/close.svg">
+          <img id="btn-close-lightbox" src="./assets/icons/close.svg" alt="Vector Close Lightbox">
         </button>
       </div>
     </div>

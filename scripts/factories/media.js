@@ -30,7 +30,7 @@ function mediaFactory(data) {
       video.setAttribute('alt', `'${titre}' fait en ${dateMedia}`);
       video.setAttribute('onclick', "openLightbox("+ mediaIndex +")");
       video.setAttribute('tabindex', '9');
-      video.setAttribute('onkeypress', "openLightbox("+ mediaIndex +")");
+      // video.setAttribute('onkeypress', "openLightbox("+ mediaIndex +")");
 
       //Création de la balise source
       const source = document.createElement('source');
@@ -110,7 +110,7 @@ function mediaFactory(data) {
       img.setAttribute('class', 'media');
       img.setAttribute('onclick', "openLightbox(" + mediaIndex +")");
       img.setAttribute('tabindex', '9');
-      img.setAttribute('onkeypress', "openLightbox("+ mediaIndex +")");
+      // img.setAttribute('onkeypress', "openLightbox("+ mediaIndex +")");
 
       const infoImage = document.createElement('span');
       infoImage.setAttribute('class', 'info');

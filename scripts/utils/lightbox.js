@@ -1,6 +1,5 @@
 let currentMedias = 0;
 function openLightbox(index){
-
   const lightbox = document.getElementsByClassName('lightbox');
   lightbox[0].style.display = 'flex';
 
