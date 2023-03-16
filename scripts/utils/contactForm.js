@@ -25,6 +25,20 @@ function displayModal() {
   });
 
 }
+document.addEventListener('keydown', function (e) {
+// if (e.defaultPrevented) {
+//   return;
+// }
+const closeBtn = document.getElementsByClassName('closeModalContact')[0];
+switch (e.key){
+  //Si touche échap fermeture de la lightbox
+  case 'Escape':
+    closeBtn.click();
+    break;
+  default:
+    return;
+}
+});
 
 //Function fermeture modal
 function closeModal() {
