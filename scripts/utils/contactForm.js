@@ -10,7 +10,7 @@ function displayModal() {
   contactBtn.addEventListener('click', function(){
     const modal = document.getElementById("contact_modal");
     modal.style.display = "block";
-
+    document.getElementsByClassName('modal')[0].focus();
     //Dom modal contact
     let modalContact = document.getElementById('Contact');
 
